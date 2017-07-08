@@ -1,3 +1,13 @@
+@rithvik, to try it out, open terminal (or node shell), cd into the project
+
+then say
+
+`npm install`
+
+and 
+
+`npm start`
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
