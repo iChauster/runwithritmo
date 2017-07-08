@@ -1,3 +1,22 @@
+@rithvik, to try it out, open terminal (or node shell), cd into the project
+
+then say
+
+`npm install`
+
+this will install all the dependicies for the server-side.
+You will have to do this for the client side too.
+
+cd into the 'client' directory
+
+then
+
+`npm install`
+
+and finally, cd into the original directory (just the main project),
+
+`npm start`
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
