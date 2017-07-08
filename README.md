@@ -4,7 +4,16 @@ then say
 
 `npm install`
 
-and 
+this will install all the dependicies for the server-side.
+You will have to do this for the client side too.
+
+cd into the 'client' directory
+
+then
+
+`npm install`
+
+and finally, cd into the original directory (just the main project),
 
 `npm start`
 
