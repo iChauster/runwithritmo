@@ -1,5 +1,7 @@
 const express = require("express");
 const fs = require("fs");
+const mongoose = require('mongoose')
+const passport = require('passport')
 const sqlite = require("sql.js");
 
 //const filebuffer = fs.readFileSync("npm-debug.log");
@@ -7,7 +9,16 @@ const sqlite = require("sql.js");
 //const db = new sqlite.Database(filebuffer);
 
 const app = express();
-
+/*
+mongoose.connect(URI, function (err){
+  if(err){
+    console.log(err);
+  }
+})
+*/
+require('./config/express')(app,passport)
+require('./server/routes')(app,passport)
+require('./config/passport')(passport)
 app.set("port", process.env.PORT || 3001);
 
 // Express only serves static assets in production
