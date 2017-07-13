@@ -5,6 +5,7 @@ import {
   login,
   register
 } from '../../actions/actions';
+import Profile from '../profile/Profile';
 import { Button, FormControl, FormGroup } from 'react-bootstrap';
 class App extends Component {
   constructor(props) {
@@ -64,7 +65,9 @@ class App extends Component {
           <h2>Time to run.</h2>
         </div>
         {user !== undefined &&
-            <h3> hello {user.username}, get started! </h3>
+            <Profile 
+              profile = {user}
+            />
         }
         {user === undefined &&
         <div className="App-intro">
