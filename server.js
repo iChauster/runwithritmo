@@ -3,19 +3,16 @@ const fs = require("fs");
 const mongoose = require('mongoose')
 const passport = require('passport')
 const sqlite = require("sql.js");
-
-//const filebuffer = fs.readFileSync("npm-debug.log");
-
-//const db = new sqlite.Database(filebuffer);
-
+const URI = "mongodb://ichauster:straightup@ds157342.mlab.com:57342/runritmo"
 const app = express();
-/*
-mongoose.connect(URI, function (err){
-  if(err){
-    console.log(err);
-  }
-})
-*/
+
+mongoose.connect('mongodb://genesisboys:gradecheck@ds019048.mlab.com:19048/gradecheck');
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function (callback) {
+  console.log('connection success');
+});
+
 require('./config/express')(app,passport)
 require('./server/routes')(app,passport)
 require('./config/passport')(passport)
