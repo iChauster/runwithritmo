@@ -1,4 +1,4 @@
-const users = require('../controllers/users')
+const users = require('./controllers/users')
 const express = require('express')
 
 module.exports = function(app, passport){

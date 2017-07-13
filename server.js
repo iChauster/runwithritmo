@@ -13,9 +13,9 @@ db.once('open', function (callback) {
   console.log('connection success');
 });
 
-require('./config/express')(app,passport)
+require('./server/config/express')(app,passport)
 require('./server/routes')(app,passport)
-require('./config/passport')(passport)
+require('./server/config/passport')(passport)
 app.set("port", process.env.PORT || 3001);
 
 // Express only serves static assets in production
