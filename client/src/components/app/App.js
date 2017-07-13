@@ -4,7 +4,7 @@ import './App.css';
 import {
   login,
   register
-} from '../actions/actions';
+} from '../../actions/actions';
 import { Button, FormControl, FormGroup } from 'react-bootstrap';
 class App extends Component {
   constructor(props) {
