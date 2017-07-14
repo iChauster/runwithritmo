@@ -1,0 +1,69 @@
+html,body{
+  width:100%;
+  height:100%;
+  margin:0;
+}
+.App {
+  text-align: center;
+  width:100%;
+  height:100%;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  margin-top:2em;
+  font-size: large;
+}
+.buttons{
+  display: inline-flex;
+}
+#login{
+  border: solid #222 0.5px;
+  background-color: transparent;
+  color:#222;
+  border-radius: 0;
+  transition : 1s all;
+
+}
+#login:hover{
+  background-color:green;
+  color:rgb(245,245,245);
+  border:solid green 0.5px;
+  transition : 1s all;
+}
+#register{
+  background-color:#222;
+  color:white;
+  border:solid white 0.5px;
+  border-radius:0px;
+  transition : 1s all;
+
+}
+#register:hover{
+  background-color:#00ACED;
+  color:white;
+  border:solid white 0.5px;
+  border-radius: 0px;
+  transition : 1s all;
+}
+.form-group{
+  margin-left:33%;
+  margin-right:33%;
+}
+.spacing{
+  padding:5px;
+}
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
