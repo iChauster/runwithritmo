@@ -17,7 +17,10 @@ class Profile extends Component {
       profile,
     } = this.props
     return (
+      <div>
       <h2> hello {profile.username}, get started! </h2>
+      <h3> fuck off </h3>
+      </div>
     );
   }
 }
