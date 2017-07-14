@@ -260,6 +260,42 @@
 /* Mobile (Default) */
 @media only screen and (max-width: (@largestMobileScreen)) {
 
+<<<<<<< HEAD
+  .ui.steps:not(.unstackable) {
+    display: inline-flex;
+    overflow: visible;
+    flex-direction: column;
+  }
+  .ui.steps:not(.unstackable) .step {
+    width: 100% !important;
+    flex-direction: column;
+    border-radius: @borderRadius;
+    padding: @verticalPadding @horizontalPadding;
+  }
+  .ui.steps:not(.unstackable) .step:first-child {
+    padding: @verticalPadding @horizontalPadding;
+    border-radius: @stepsBorderRadius @stepsBorderRadius 0em 0em;
+  }
+  .ui.steps:not(.unstackable) .step:last-child {
+    border-radius: 0em 0em @stepsBorderRadius @stepsBorderRadius;
+  }
+
+  /* Arrow */
+  .ui.steps:not(.unstackable) .step:after {
+    display: none !important;
+  }
+
+  /* Content */
+  .ui.steps:not(.unstackable) .step .content {
+    text-align: center;
+  }
+
+  /* Icon */
+  .ui.steps:not(.unstackable) .step > .icon,
+  .ui.ordered.steps:not(.unstackable) .step:before {
+    margin: 0em 0em @mobileIconDistance 0em;
+  }
+=======
 .ui.steps {
   display: inline-flex;
   overflow: visible;
@@ -294,6 +330,7 @@
 .ui.ordered.steps .step:before {
   margin: 0em 0em @mobileIconDistance 0em;
 }
+>>>>>>> 9e44fd7cf52ba7052bc5cedde935740ee59a1565
 
 }
 

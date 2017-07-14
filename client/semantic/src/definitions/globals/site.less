@@ -46,8 +46,11 @@ body {
   font-smoothing: @fontSmoothing;
 }
 
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> 9e44fd7cf52ba7052bc5cedde935740ee59a1565
 /*******************************
              Headers
 *******************************/
@@ -128,6 +131,52 @@ a:hover {
 
 
 /*******************************
+<<<<<<< HEAD
+         Scrollbars
+*******************************/
+
+.addScrollbars() when (@useCustomScrollbars) {
+
+  /* Force Simple Scrollbars */
+  body ::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: @customScrollbarWidth;
+  }
+  body ::-webkit-scrollbar-track {
+    background: @trackBackground;
+    border-radius: @trackBorderRadius;
+  }
+  body ::-webkit-scrollbar-thumb {
+    cursor: pointer;
+    border-radius: @thumbBorderRadius;
+    background: @thumbBackground;
+    transition: @thumbTransition;
+  }
+  body ::-webkit-scrollbar-thumb:window-inactive {
+    background: @thumbInactiveBackground;
+  }
+  body ::-webkit-scrollbar-thumb:hover {
+    background: @thumbHoverBackground;
+  }
+
+  /* Inverted UI */
+  body .ui.inverted::-webkit-scrollbar-track {
+    background: @trackInvertedBackground;
+  }
+  body .ui.inverted::-webkit-scrollbar-thumb {
+    background: @thumbInvertedBackground;
+  }
+  body .ui.inverted::-webkit-scrollbar-thumb:window-inactive {
+    background: @thumbInvertedInactiveBackground;
+  }
+  body .ui.inverted::-webkit-scrollbar-thumb:hover {
+    background: @thumbInvertedHoverBackground;
+  }
+}
+
+/*******************************
+=======
+>>>>>>> 9e44fd7cf52ba7052bc5cedde935740ee59a1565
           Highlighting
 *******************************/
 
@@ -162,5 +211,9 @@ input::selection {
   color: @inputHighlightColor;
 }
 
+<<<<<<< HEAD
+.addScrollbars();
+=======
 
+>>>>>>> 9e44fd7cf52ba7052bc5cedde935740ee59a1565
 .loadUIOverrides();

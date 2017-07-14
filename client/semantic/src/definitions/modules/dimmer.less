@@ -21,7 +21,11 @@
             Dimmer
 *******************************/
 
+<<<<<<< HEAD
+.dimmable:not(body) {
+=======
 .dimmable:not(.body) {
+>>>>>>> 9e44fd7cf52ba7052bc5cedde935740ee59a1565
   position: @dimmablePosition;
 }
 
@@ -69,6 +73,26 @@
   border-radius: inherit !important;
 }
 
+<<<<<<< HEAD
+/* Scrollbars */
+.addScrollbars() when (@useCustomScrollbars) {
+  .ui.dimmer:not(.inverted)::-webkit-scrollbar-track {
+    background: @trackInvertedBackground;
+  }
+  .ui.dimmer:not(.inverted)::-webkit-scrollbar-thumb {
+    background: @thumbInvertedBackground;
+  }
+  .ui.dimmer:not(.inverted)::-webkit-scrollbar-thumb:window-inactive {
+    background: @thumbInvertedInactiveBackground;
+  }
+  .ui.dimmer:not(.inverted)::-webkit-scrollbar-thumb:hover {
+    background: @thumbInvertedHoverBackground;
+  }
+}
+.addScrollbars();
+
+=======
+>>>>>>> 9e44fd7cf52ba7052bc5cedde935740ee59a1565
 /*******************************
             States
 *******************************/
