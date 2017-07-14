@@ -49,6 +49,17 @@ module.exports.login = function (req, res, next){
 	})(req,res,next)
 }
 
+module.exports.check = function (req, res, next){
+	console.log('CHECKING');
+	if(!req.user){
+		console.log('needs login');
+		return res.status(321).json({MESSAGE : "NEEDS LOGIN"});
+	}else{
+		console.log('user in');
+		return res.json({MESSAGE : "LOGGED IN", "USER" : req.user})
+
+	}
+}
 module.exports.logout = function (req, res, next){
 	req.logout();
 	res.end('LOGGED OUT');

@@ -3,6 +3,8 @@ const express = require('express')
 
 module.exports = function(app, passport){
 	
+	app.get('/check', users.check)
+
 	app.post('/login', users.login);
 
 	app.post('/register', users.register);

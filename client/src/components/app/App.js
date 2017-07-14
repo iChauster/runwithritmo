@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import {connect} from 'react-redux';
 import './App.css';
 import {
+  initialize,
   login,
   register
 } from '../../actions/actions';
@@ -16,7 +17,7 @@ class App extends Component {
   componentDidMount(){
     console.log('mounted')
     const { dispatch } = this.props;
-    dispatch(login())
+    dispatch(initialize())
     this.timerID = setInterval(
       () => this.tick(),
       1000
@@ -66,7 +67,7 @@ class App extends Component {
         </div>
         {user !== undefined &&
             <Profile 
-              profile = {user}
+              profile={user}
             />
         }
         {user === undefined &&

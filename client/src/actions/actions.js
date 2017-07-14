@@ -1,6 +1,21 @@
 var request = require('request');
 export const FOUND_USER = 'FOUND_USER';
 
+export function initialize(){
+	console.log('initialize request made');
+	return (dispatch) => {
+		request("http://localhost:3000/check", function (error, response, body){
+			console.log("REQUEST CALLBACK")
+			console.log(response)
+			if(error)
+				console.log(error)
+			if(response.statusCode === 200){
+				var json = JSON.parse(body);
+				dispatch(foundUser(json["USER"]));
+			}
+		});
+	}
+}
 export function login (u, p){
 	console.log('request made :' + u);
 	var options = {
@@ -14,11 +29,8 @@ export function login (u, p){
 	};
 	return (dispatch) => {
 		request(options, function (error, response, body){
-			console.log(response)
-			console.log(body)
 			if(error)
 				console.log(error)
-			console.log(response);
 			if(response != null && response.statusCode === 200){
 				var json = JSON.parse(body);
 				dispatch(foundUser(json["USER"]))
