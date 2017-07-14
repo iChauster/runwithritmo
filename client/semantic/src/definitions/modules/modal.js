@@ -108,15 +108,36 @@ $.fn.modal = function(parameters) {
             var
               defaultSettings = {
                 debug      : settings.debug,
+<<<<<<< HEAD
                 dimmerName : 'modals'
               },
               dimmerSettings = $.extend(true, defaultSettings, settings.dimmerSettings)
             ;
+=======
+                dimmerName : 'modals',
+                duration   : {
+                  show     : settings.duration,
+                  hide     : settings.duration
+                }
+              },
+              dimmerSettings = $.extend(true, defaultSettings, settings.dimmerSettings)
+            ;
+            if(settings.inverted) {
+              dimmerSettings.variation = (dimmerSettings.variation !== undefined)
+                ? dimmerSettings.variation + ' inverted'
+                : 'inverted'
+              ;
+            }
+>>>>>>> 9e44fd7cf52ba7052bc5cedde935740ee59a1565
             if($.fn.dimmer === undefined) {
               module.error(error.dimmer);
               return;
             }
+<<<<<<< HEAD
             module.debug('Creating dimmer');
+=======
+            module.debug('Creating dimmer with settings', dimmerSettings);
+>>>>>>> 9e44fd7cf52ba7052bc5cedde935740ee59a1565
             $dimmable = $context.dimmer(dimmerSettings);
             if(settings.detachable) {
               module.verbose('Modal is detachable, moving content into dimmer');
@@ -125,6 +146,12 @@ $.fn.modal = function(parameters) {
             else {
               module.set.undetached();
             }
+<<<<<<< HEAD
+=======
+            if(settings.blurring) {
+              $dimmable.addClass(className.blurring);
+            }
+>>>>>>> 9e44fd7cf52ba7052bc5cedde935740ee59a1565
             $dimmer = $dimmable.dimmer('get dimmer');
           },
           id: function() {
@@ -277,7 +304,11 @@ $.fn.modal = function(parameters) {
             }
           },
           resize: function() {
+<<<<<<< HEAD
             if( $dimmable.dimmer('is active') && ( module.is.animating() || module.is.active() ) ) {
+=======
+            if( $dimmable.dimmer('is active') ) {
+>>>>>>> 9e44fd7cf52ba7052bc5cedde935740ee59a1565
               requestAnimationFrame(module.refresh);
             }
           }
@@ -298,7 +329,10 @@ $.fn.modal = function(parameters) {
             : function(){}
           ;
           module.refreshModals();
+<<<<<<< HEAD
           module.set.dimmerSettings();
+=======
+>>>>>>> 9e44fd7cf52ba7052bc5cedde935740ee59a1565
           module.showModal(callback);
         },
 
@@ -592,6 +626,7 @@ $.fn.modal = function(parameters) {
               ;
             }
           },
+<<<<<<< HEAD
           dimmerSettings: function() {
             if($.fn.dimmer === undefined) {
               module.error(error.dimmer);
@@ -628,6 +663,8 @@ $.fn.modal = function(parameters) {
             }
             $context.dimmer('setting', dimmerSettings);
           },
+=======
+>>>>>>> 9e44fd7cf52ba7052bc5cedde935740ee59a1565
           screenHeight: function() {
             if( module.can.fit() ) {
               $body.css('height', '');
@@ -936,7 +973,10 @@ $.fn.modal.settings = {
     active     : 'active',
     animating  : 'animating',
     blurring   : 'blurring',
+<<<<<<< HEAD
     inverted   : 'inverted',
+=======
+>>>>>>> 9e44fd7cf52ba7052bc5cedde935740ee59a1565
     scrolling  : 'scrolling',
     undetached : 'undetached'
   }

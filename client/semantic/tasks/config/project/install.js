@@ -339,7 +339,11 @@ module.exports = {
         when: when.allowOverwrite,
         choices: [
           {
+<<<<<<< HEAD
             name: 'Automatic (Use default locations and all components)',
+=======
+            name: 'Automatic (Use defaults locations and all components)',
+>>>>>>> 9e44fd7cf52ba7052bc5cedde935740ee59a1565
             value: 'auto'
           },
           {

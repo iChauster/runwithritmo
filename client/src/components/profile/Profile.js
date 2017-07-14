@@ -2,8 +2,11 @@ import React, { Component, PropTypes } from 'react';
 import {connect} from 'react-redux';
 import './Profile.css';
 import { Button, FormControl, FormGroup } from 'react-bootstrap';
+<<<<<<< HEAD
 import { withGoogleMap, GoogleMap, Marker } from "react-google-maps";
 import withScriptjs from "react-google-maps/lib/async/withScriptjs";
+=======
+>>>>>>> 9e44fd7cf52ba7052bc5cedde935740ee59a1565
 class Profile extends Component {
   constructor(props) {
     console.log('constructor of profile reached')
@@ -14,11 +17,15 @@ class Profile extends Component {
   }
   componentWillUnmount(){
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9e44fd7cf52ba7052bc5cedde935740ee59a1565
   render() {
     const {
       profile,
     } = this.props
+<<<<<<< HEAD
    	const GettingStartedGoogleMap=withScriptjs(
   	withGoogleMap(
   		props => (
@@ -53,6 +60,12 @@ class Profile extends Component {
     	</div>
     	);
     }
+=======
+    return (
+      <h2> hello {profile.username}, get started! </h2>
+    );
+  }
+>>>>>>> 9e44fd7cf52ba7052bc5cedde935740ee59a1565
 }
 Profile.propTypes = {
   dispatch: PropTypes.func.isRequired,
@@ -61,4 +74,8 @@ function mapStateToProps(state) {
   return {}
 }
 
+<<<<<<< HEAD
 export default connect(mapStateToProps)(Profile);
+=======
+export default connect(mapStateToProps)(Profile);
+>>>>>>> 9e44fd7cf52ba7052bc5cedde935740ee59a1565

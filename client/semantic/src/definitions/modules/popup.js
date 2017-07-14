@@ -125,10 +125,17 @@ $.fn.popup = function(parameters) {
           }
           if(settings.popup) {
             $popup.addClass(className.loading);
+<<<<<<< HEAD
             $offsetParent = module.get.offsetParent($target);
             $popup.removeClass(className.loading);
             if(settings.movePopup && module.has.popup() && module.get.offsetParent($popup)[0] !== $offsetParent[0]) {
               module.debug('Moving popup to the same offset parent as target');
+=======
+            $offsetParent = module.get.offsetParent();
+            $popup.removeClass(className.loading);
+            if(settings.movePopup && module.has.popup() && module.get.offsetParent($popup)[0] !== $offsetParent[0]) {
+              module.debug('Moving popup to the same offset parent as activating element');
+>>>>>>> 9e44fd7cf52ba7052bc5cedde935740ee59a1565
               $popup
                 .detach()
                 .appendTo($offsetParent)
@@ -139,7 +146,11 @@ $.fn.popup = function(parameters) {
             $offsetParent = (settings.inline)
               ? module.get.offsetParent($target)
               : module.has.popup()
+<<<<<<< HEAD
                 ? module.get.offsetParent($target)
+=======
+                ? module.get.offsetParent($popup)
+>>>>>>> 9e44fd7cf52ba7052bc5cedde935740ee59a1565
                 : $body
             ;
           }
@@ -360,7 +371,11 @@ $.fn.popup = function(parameters) {
 
         hideAll: function() {
           $(selector.popup)
+<<<<<<< HEAD
             .filter('.' + className.popupVisible)
+=======
+            .filter('.' + className.visible)
+>>>>>>> 9e44fd7cf52ba7052bc5cedde935740ee59a1565
             .each(function() {
               $(this)
                 .data(metadata.activator)
@@ -415,7 +430,11 @@ $.fn.popup = function(parameters) {
         },
         supports: {
           svg: function() {
+<<<<<<< HEAD
             return (typeof SVGGraphicsElement === 'undefined');
+=======
+            return (typeof SVGGraphicsElement === undefined);
+>>>>>>> 9e44fd7cf52ba7052bc5cedde935740ee59a1565
           }
         },
         animate: {
@@ -986,6 +1005,7 @@ $.fn.popup = function(parameters) {
           },
           close: function() {
             if(settings.hideOnScroll === true || (settings.hideOnScroll == 'auto' && settings.on != 'click')) {
+<<<<<<< HEAD
               module.bind.closeOnScroll();
             }
             if(settings.on == 'hover' && openedWithTouch) {
@@ -1018,6 +1038,30 @@ $.fn.popup = function(parameters) {
                 module.event.hideGracefully.call(element, event);
               })
             ;
+=======
+              $scrollContext
+                .one(module.get.scrollEvent() + elementNamespace, module.event.hideGracefully)
+              ;
+            }
+            if(settings.on == 'hover' && openedWithTouch) {
+              module.verbose('Binding popup close event to document');
+              $document
+                .on('touchstart' + elementNamespace, function(event) {
+                  module.verbose('Touched away from popup');
+                  module.event.hideGracefully.call(element, event);
+                })
+              ;
+            }
+            if(settings.on == 'click' && settings.closable) {
+              module.verbose('Binding popup close event to document');
+              $document
+                .on('click' + elementNamespace, function(event) {
+                  module.verbose('Clicked away from popup');
+                  module.event.hideGracefully.call(element, event);
+                })
+              ;
+            }
+>>>>>>> 9e44fd7cf52ba7052bc5cedde935740ee59a1565
           }
         },
 
@@ -1078,7 +1122,11 @@ $.fn.popup = function(parameters) {
             return ($popup !== undefined && $popup.hasClass(className.fluid));
           },
           visible: function() {
+<<<<<<< HEAD
             return ($popup !== undefined && $popup.hasClass(className.popupVisible));
+=======
+            return ($popup !== undefined && $popup.hasClass(className.visible));
+>>>>>>> 9e44fd7cf52ba7052bc5cedde935740ee59a1565
           },
           dropdown: function() {
             return $module.hasClass(className.dropdown);
@@ -1424,6 +1472,7 @@ $.fn.popup.settings = {
   },
 
   className   : {
+<<<<<<< HEAD
     active       : 'active',
     animating    : 'animating',
     dropdown     : 'dropdown',
@@ -1433,6 +1482,16 @@ $.fn.popup.settings = {
     position     : 'top left center bottom right',
     visible      : 'visible',
     popupVisible : 'visible'
+=======
+    active    : 'active',
+    animating : 'animating',
+    dropdown  : 'dropdown',
+    fluid     : 'fluid',
+    loading   : 'loading',
+    popup     : 'ui popup',
+    position  : 'top left center bottom right',
+    visible   : 'visible'
+>>>>>>> 9e44fd7cf52ba7052bc5cedde935740ee59a1565
   },
 
   selector    : {

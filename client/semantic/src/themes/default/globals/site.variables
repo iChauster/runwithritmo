@@ -140,6 +140,7 @@
 @linkHoverUnderline  : @linkUnderline;
 
 /*-------------------
+<<<<<<< HEAD
     Scroll Bars
 --------------------*/
 
@@ -164,6 +165,8 @@
 @thumbInvertedHoverBackground: rgba(255, 255, 255, 0.35);
 
 /*-------------------
+=======
+>>>>>>> 9e44fd7cf52ba7052bc5cedde935740ee59a1565
   Highlighted Text
 --------------------*/
 

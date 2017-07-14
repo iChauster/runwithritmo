@@ -18,5 +18,9 @@
   "permission": false,
   "autoInstall": false,
   "rtl": false,
+<<<<<<< HEAD
   "version": "2.2.11"
+=======
+  "version": "2.2.10"
+>>>>>>> 9e44fd7cf52ba7052bc5cedde935740ee59a1565
 }

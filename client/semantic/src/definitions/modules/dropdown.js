@@ -677,9 +677,13 @@ $.fn.dropdown = function(parameters) {
               if(module.is.multiple()) {
                 module.filterActive();
               }
+<<<<<<< HEAD
               if(query || (!query && module.get.activeItem().length == 0)) {
                 module.select.firstUnfiltered();
               }
+=======
+              module.select.firstUnfiltered();
+>>>>>>> 9e44fd7cf52ba7052bc5cedde935740ee59a1565
               if( module.has.allResultsFiltered() ) {
                 if( settings.onNoResults.call(element, searchTerm) ) {
                   if(settings.allowAdditions) {
@@ -1470,6 +1474,10 @@ $.fn.dropdown = function(parameters) {
                 // down arrow (open menu)
                 if(pressedKey == keys.downArrow && !module.is.visible()) {
                   module.verbose('Down key pressed, showing dropdown');
+<<<<<<< HEAD
+=======
+                  module.select.firstUnfiltered();
+>>>>>>> 9e44fd7cf52ba7052bc5cedde935740ee59a1565
                   module.show();
                   event.preventDefault();
                 }
@@ -2368,23 +2376,31 @@ $.fn.dropdown = function(parameters) {
           },
           direction: function($menu) {
             if(settings.direction == 'auto') {
+<<<<<<< HEAD
               // reset position
               module.remove.upward();
 
               if(module.can.openDownward($menu)) {
+=======
+              if(module.is.onScreen($menu)) {
+>>>>>>> 9e44fd7cf52ba7052bc5cedde935740ee59a1565
                 module.remove.upward($menu);
               }
               else {
                 module.set.upward($menu);
               }
+<<<<<<< HEAD
               if(!module.is.leftward($menu) && !module.can.openRightward($menu)) {
                 module.set.leftward($menu);
               }
+=======
+>>>>>>> 9e44fd7cf52ba7052bc5cedde935740ee59a1565
             }
             else if(settings.direction == 'upward') {
               module.set.upward($menu);
             }
           },
+<<<<<<< HEAD
           upward: function($currentMenu) {
             var $element = $currentMenu || $module;
             $element.addClass(className.upward);
@@ -2393,6 +2409,12 @@ $.fn.dropdown = function(parameters) {
             var $element = $currentMenu || $menu;
             $element.addClass(className.leftward);
           },
+=======
+          upward: function($menu) {
+            var $element = $menu || $module;
+            $element.addClass(className.upward);
+          },
+>>>>>>> 9e44fd7cf52ba7052bc5cedde935740ee59a1565
           value: function(value, text, $selected) {
             var
               escapedValue = module.escape.value(value),
@@ -2740,6 +2762,7 @@ $.fn.dropdown = function(parameters) {
           initialLoad: function() {
             initialLoad = false;
           },
+<<<<<<< HEAD
           upward: function($currentMenu) {
             var $element = $currentMenu || $module;
             $element.removeClass(className.upward);
@@ -2748,6 +2771,12 @@ $.fn.dropdown = function(parameters) {
             var $element = $currentMenu || $menu;
             $element.removeClass(className.leftward);
           },
+=======
+          upward: function($menu) {
+            var $element = $menu || $module;
+            $element.removeClass(className.upward);
+          },
+>>>>>>> 9e44fd7cf52ba7052bc5cedde935740ee59a1565
           visible: function() {
             $module.removeClass(className.visible);
           },
@@ -3052,10 +3081,13 @@ $.fn.dropdown = function(parameters) {
               : $menu.transition    && $menu.transition('is animating')
             ;
           },
+<<<<<<< HEAD
           leftward: function($subMenu) {
             var $selectedMenu = $subMenu || $menu;
             return $selectedMenu.hasClass(className.leftward);
           },
+=======
+>>>>>>> 9e44fd7cf52ba7052bc5cedde935740ee59a1565
           disabled: function() {
             return $module.hasClass(className.disabled);
           },
@@ -3074,6 +3106,49 @@ $.fn.dropdown = function(parameters) {
           initialLoad: function() {
             return initialLoad;
           },
+<<<<<<< HEAD
+=======
+          onScreen: function($subMenu) {
+            var
+              $currentMenu   = $subMenu || $menu,
+              canOpenDownward = true,
+              onScreen = {},
+              calculations
+            ;
+            $currentMenu.addClass(className.loading);
+            calculations = {
+              context: {
+                scrollTop : $context.scrollTop(),
+                height    : $context.outerHeight()
+              },
+              menu : {
+                offset: $currentMenu.offset(),
+                height: $currentMenu.outerHeight()
+              }
+            };
+            if(module.is.verticallyScrollableContext()) {
+              calculations.menu.offset.top += calculations.context.scrollTop;
+            }
+            onScreen = {
+              above : (calculations.context.scrollTop) <= calculations.menu.offset.top - calculations.menu.height,
+              below : (calculations.context.scrollTop + calculations.context.height) >= calculations.menu.offset.top + calculations.menu.height
+            };
+            if(onScreen.below) {
+              module.verbose('Dropdown can fit in context downward', onScreen);
+              canOpenDownward = true;
+            }
+            else if(!onScreen.below && !onScreen.above) {
+              module.verbose('Dropdown cannot fit in either direction, favoring downward', onScreen);
+              canOpenDownward = true;
+            }
+            else {
+              module.verbose('Dropdown cannot fit below, opening upward', onScreen);
+              canOpenDownward = false;
+            }
+            $currentMenu.removeClass(className.loading);
+            return canOpenDownward;
+          },
+>>>>>>> 9e44fd7cf52ba7052bc5cedde935740ee59a1565
           inObject: function(needle, object) {
             var
               found = false
@@ -3136,6 +3211,7 @@ $.fn.dropdown = function(parameters) {
                 : false
             ;
             return (overflowY == 'auto' || overflowY == 'scroll');
+<<<<<<< HEAD
           },
           horizontallyScrollableContext: function() {
             var
@@ -3144,6 +3220,8 @@ $.fn.dropdown = function(parameters) {
                 : false
             ;
             return (overflowX == 'auto' || overflowX == 'scroll');
+=======
+>>>>>>> 9e44fd7cf52ba7052bc5cedde935740ee59a1565
           }
         },
 
@@ -3160,6 +3238,7 @@ $.fn.dropdown = function(parameters) {
             }
             return false;
           },
+<<<<<<< HEAD
           openDownward: function($subMenu) {
             var
               $currentMenu    = $subMenu || $menu,
@@ -3233,6 +3312,8 @@ $.fn.dropdown = function(parameters) {
             $currentMenu.removeClass(className.loading);
             return canOpenRightward;
           },
+=======
+>>>>>>> 9e44fd7cf52ba7052bc5cedde935740ee59a1565
           click: function() {
             return (hasTouch || settings.on == 'click');
           },
@@ -3334,6 +3415,12 @@ $.fn.dropdown = function(parameters) {
                     queue      : true,
                     onStart    : start,
                     onComplete : function() {
+<<<<<<< HEAD
+=======
+                      if(settings.direction == 'auto') {
+                        module.remove.upward($subMenu);
+                      }
+>>>>>>> 9e44fd7cf52ba7052bc5cedde935740ee59a1565
                       callback.call(element);
                     }
                   })
@@ -3763,7 +3850,10 @@ $.fn.dropdown.settings = {
     selected    : 'selected',
     selection   : 'selection',
     upward      : 'upward',
+<<<<<<< HEAD
     leftward    : 'left',
+=======
+>>>>>>> 9e44fd7cf52ba7052bc5cedde935740ee59a1565
     visible     : 'visible'
   }
 

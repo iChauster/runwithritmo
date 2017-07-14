@@ -89,6 +89,13 @@ $.fn.sidebar = function(parameters) {
 
           transitionEvent = module.get.transitionEvent();
 
+<<<<<<< HEAD
+=======
+          if(module.is.ios()) {
+            module.set.ios();
+          }
+
+>>>>>>> 9e44fd7cf52ba7052bc5cedde935740ee59a1565
           // avoids locking rendering if initialized in onReady
           if(settings.delaySetup) {
             requestAnimationFrame(module.setup.layout);
@@ -565,7 +572,10 @@ $.fn.sidebar = function(parameters) {
         set: {
 
           // ios only (scroll on html not document). This prevent auto-resize canvas/scroll in ios
+<<<<<<< HEAD
           // (This is no longer necessary in latest iOS)
+=======
+>>>>>>> 9e44fd7cf52ba7052bc5cedde935740ee59a1565
           ios: function() {
             $html.addClass(className.ios);
           },
