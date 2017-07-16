@@ -58,12 +58,14 @@ class App extends Component {
     const {
       user,
     } = this.props;
+    console.log(user);
     return (
       <div className="App">
         <div className="App-header">
           <h2>Run With Rithvik</h2>
-          <h2>It is {this.state.date.toLocaleTimeString()}. </h2>
-          <h2>Time to run.</h2>
+          {user !== undefined &&
+            <h3>Hello {user.username}! </h3>
+          }
         </div>
         {user !== undefined &&
             <Profile 

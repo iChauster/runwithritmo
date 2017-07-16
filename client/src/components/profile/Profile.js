@@ -38,18 +38,16 @@ class Profile extends Component {
   		));
     return (
     	<div>
-    	<h2>Hello {profile.username}, lets get started! </h2>
-    	<h3> Your Runs </h3>
     	<GettingStartedGoogleMap
   		googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyAz5AiYQrWAfsSpOt7Q-Ap1YkI4ptIkgVM"
   		loadingElement={
-      		<div style={{ width: `100%`, height: `25em`}}></div>
+      		<div style={{ width: `100%`, height: `70%`}}></div>
     	}
   		containerElement={
-  			<div style={{ width: `100%`, height: `25em` }}></div>
+  			<div style={{ width: `100%`, height: `90%` }}></div>
   		}
   		mapElement={
-  			<div style={{ width: `100%`, height: `25em` }}></div>
+  			<div style={{ width: `100%`, height: `100%` }}></div>
   		}
   		markers={[{ position: {
         lat: 40.35,
