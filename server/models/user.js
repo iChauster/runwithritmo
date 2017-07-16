@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
 const bcrypt   = require('bcrypt-nodejs');
 const md5 = require('MD5');
-
+const run = require('./run');
 var userSchema = mongoose.Schema({
     username: String,
     password: String,
+    runs : [run],
     name : String
 });
 
