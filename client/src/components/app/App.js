@@ -58,7 +58,6 @@ class App extends Component {
     const {
       user,
     } = this.props;
-    console.log(user);
     return (
       <div className="App">
         <div className="App-header">

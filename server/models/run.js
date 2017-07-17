@@ -2,8 +2,8 @@ var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
 
 var Run = new Schema({
-	length : Double,
-	subpoints : [{longitude : Double, latitude : Double}],
+	length : Number,
+	subpoints : [{longitude : Number, latitude : Number}],
 	pace : String,
 	time : String,
 	date: Date

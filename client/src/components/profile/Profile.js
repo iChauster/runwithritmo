@@ -4,6 +4,7 @@ import './Profile.css';
 //import { Button, FormControl, FormGroup } from 'react-bootstrap';
 import { withGoogleMap, GoogleMap, Marker } from "react-google-maps";
 import withScriptjs from "react-google-maps/lib/async/withScriptjs";
+import '@material/fab/dist/mdc.fab.css'
 class Profile extends Component {
   constructor(props) {
     console.log('constructor of profile reached')
@@ -14,7 +15,9 @@ class Profile extends Component {
   }
   componentWillUnmount(){
   }
-
+  add(){
+    console.log('add clicked')
+  }
   render() {
     const {
       profile,
@@ -57,6 +60,9 @@ class Profile extends Component {
 	    </GettingStartedGoogleMap>
       <div className='runs'>
         <h1>helo</h1>
+        <div id="addRun" className='mdc-fab' onClick={this.add.bind(this)}>
+          <h3 id="add"> + </h3>
+        </div>
       </div>
     	</div>
     	);

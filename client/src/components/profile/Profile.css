@@ -6,10 +6,19 @@ html,body{
 .runs{
 	position:absolute;
 	left: 1em;
-	right: 1em;
+	right: 2em;
 	bottom: 3.5em;
 	background: #EFEFEF;
 	border-radius: 2em;
 	min-height: 20%;
 	box-shadow: 0 10px 11px 0 rgba(0,0,0,0.50);
+}
+#add{
+	line-height: 3em !important;
+}
+#addRun{
+	background-color: #3AD96E;
+	position: absolute;
+	right:-20;
+	bottom: -20;
 }

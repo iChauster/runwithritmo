@@ -5,7 +5,7 @@ const run = require('./run');
 var userSchema = mongoose.Schema({
     username: String,
     password: String,
-    runs : [run],
+    runs : [{type: mongoose.Schema.Types.ObjectId, ref: 'Run'}],
     name : String
 });
 
