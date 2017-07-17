@@ -22,3 +22,6 @@ html,body{
 	right:-20;
 	bottom: -20;
 }
+table, thead, tr, th, td {
+	border:1px transparent !important;
+}
