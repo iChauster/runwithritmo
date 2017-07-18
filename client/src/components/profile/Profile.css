@@ -21,6 +21,7 @@ html,body{
 	position: absolute;
 	right:-20;
 	bottom: -20;
+	box-shadow : 0 10px 11px 0 rgba(0,0,0,0.50);
 }
 table, thead, tr, th, td {
 	border:1px transparent !important;
