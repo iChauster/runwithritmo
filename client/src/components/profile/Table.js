@@ -28,13 +28,13 @@ export default class Table extends Component{
   			distance: "3.3 miles",
   			time: "15m 23s",
   			pace: "5:12",
-        id : 1
+        id : 1,
         date: "6/7/17"
   		},{
   			distance: "0.9 miles",
   			time: "4m 23s",
   			pace: "3:12",
-        id : 2
+        id : 2,
         date: "5/10/17"
   		}];
 		// It's a data format example.
