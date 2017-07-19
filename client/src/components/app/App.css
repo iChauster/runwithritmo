@@ -1,12 +1,22 @@
+/*
+Design principles : 
+F4EDF1 - light shades
+3AD96E - light accent
+60A6AF - brand
+737767 - dark accent
+2C2D31 - dark shades
+*/
 html,body{
   width:100%;
   height:100%;
   margin:0;
+  background:#F4EDF1 !important;
 }
 .App {
   text-align: center;
   width:100%;
   height:100%;
+  display: table;
 }
 
 .App-header {
@@ -14,6 +24,14 @@ html,body{
   margin:0;
   color: white;
   background: #60A6AF;
+  min-height: 10%;
+  position: absolute;
+  width:100%;
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition:all 1s ease-in-out;
+  -o-transition:all 1s ease-in-out;
+  transition :all 1s ease-in-out;
+  display:table;
 }
 .App-header h2{
   font-family: AvenirNext-Bold, Helvetica;
@@ -29,40 +47,69 @@ html,body{
   color: #F4EDF1;
   opacity: 0.7;
 }
-
+.layer{
+  background:rgba(44,45,49, 0.3);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.video-wrap{
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+}
+#cover{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 .App-intro {
   margin-top:2em;
   font-size: large;
+  display:table-cell;
+  vertical-align: middle;
+  text-align: center;
+  position: relative;
 }
 .buttons{
   display: inline-flex;
 }
+#brand{
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
 #login{
-  border: solid #222 0.5px;
-  background-color: transparent;
-  color:#222;
+  background-color: #3AD96E;
+  color:#F4EDF1;
+  border:none !important;
   border-radius: 0;
   transition : 1s all;
-
 }
 #login:hover{
   background-color:green;
   color:rgb(245,245,245);
-  border:solid green 0.5px;
+  border:none !important;
   transition : 1s all;
 }
 #register{
-  background-color:#222;
+  background-color:#737767;
   color:white;
-  border:solid white 0.5px;
+  border:none !important;
   border-radius:0px;
   transition : 1s all;
 
 }
 #register:hover{
-  background-color:#00ACED;
+  background-color:#2C2D31;
   color:white;
-  border:solid white 0.5px;
+  border:none !important;
   border-radius: 0px;
   transition : 1s all;
 }
@@ -73,6 +120,32 @@ html,body{
 .spacing{
   padding:5px;
 }
+button{
+  font-size: 1.1em !important;
+}
+@media (min-aspect-ratio: 16/9) {
+  #cover {
+    height: 300%;
+    top: -100%;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  #cover{
+    width: 300%;
+    left: -100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .video-wrap{
+    background: #F4EDF1
+  }
+  #cover {
+    display: none;
+  }
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

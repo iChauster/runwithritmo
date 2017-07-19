@@ -60,11 +60,20 @@ class App extends Component {
     } = this.props;
     return (
       <div className="App">
+        {user === undefined &&
+        <div className="video-wrap">
+          <div className="layer"></div>
+          <video id="cover" className="video" src={require("../../../public/run.mp4")} autoPlay loop muted>
+          </video>
+        </div>
+        }
         <div className="App-header">
-          <h2>ReddySetRun</h2>
-          {user !== undefined &&
-            <h3>Hello {user.username}! </h3>
-          }
+          <div id="brand">
+            <h2>ReddySetRun</h2>
+            {user !== undefined &&
+              <h3>Hello {user.username}! </h3>
+            }
+          </div>
         </div>
         {user !== undefined &&
             <Profile 

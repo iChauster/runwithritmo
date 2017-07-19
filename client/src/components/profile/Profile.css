@@ -1,3 +1,12 @@
+/*
+Design principles : 
+F4EDF1 - light shades
+3AD96E - light accent
+60A6AF - brand
+737767 - dark accent
+2C2D31 - dark shades
+*/
+
 html,body{
 	width:100%;
 	height:100%;
@@ -8,7 +17,7 @@ html,body{
 	left: 1em;
 	right: 2em;
 	bottom: 3.5em;
-	background: #EFEFEF;
+	background: #F4EDF1;
 	border-radius: 2em;
 	min-height: 20%;
 	box-shadow: 0 10px 11px 0 rgba(0,0,0,0.50);
