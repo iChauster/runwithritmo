@@ -27,11 +27,13 @@ export default class Table extends Component{
   		var products = [{
   			length: "3.3 miles",
   			time: "15m 23s",
-  			pace: "5:12"
+  			pace: "5:12",
+        id : 1
   		},{
   			length: "0.9 miles",
   			time: "4m 23s",
-  			pace: "3:12"
+  			pace: "3:12",
+        id : 2
   		}];
 		// It's a data format example.
   		return (
