@@ -61,7 +61,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <h2>Run With Rithvik</h2>
+          <h2>ReddySetRun</h2>
           {user !== undefined &&
             <h3>Hello {user.username}! </h3>
           }

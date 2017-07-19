@@ -13,20 +13,21 @@ html,body{
   padding: 1em;
   margin:0;
   color: white;
-  height:10%;
-  background: #747474;
+  height:11%;
+  background: #824B4A;
 }
 .App-header h2{
   font-family: AvenirNext-Bold, Helvetica;
   font-size: 2em;
   line-height: 1em;
-  color: #ACACAC;
+  margin: 0.4em;
+  color: #F4F2F5;
 }
 .App-header h3{
   font-family: AvenirNext-Bold, Helvetica;
   font-size:1em;
   margin:0;
-  color: #565656
+  color: #A1978D
 }
 
 .App-intro {

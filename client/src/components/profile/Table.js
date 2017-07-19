@@ -25,24 +25,26 @@ export default class Table extends Component{
   			}
 		};
   		var products = [{
-  			length: "3.3 miles",
+  			distance: "3.3 miles",
   			time: "15m 23s",
   			pace: "5:12",
         id : 1
+        date: "6/7/17"
   		},{
-  			length: "0.9 miles",
+  			distance: "0.9 miles",
   			time: "4m 23s",
   			pace: "3:12",
         id : 2
+        date: "5/10/17"
   		}];
 		// It's a data format example.
   		return (
   			<div className='runs'>
   				<BootstrapTable data={products} options={options} striped={false} hover={true} bordered={false} tableStyle={ { "padding": "6px" } } insertRow>
-  					<TableHeaderColumn dataField="length" width='60%' isKey={true} dataAlign="left" dataSort={true}>Length</TableHeaderColumn>
+  					<TableHeaderColumn dataField="distance" width='60%' isKey={true} dataAlign="left" dataSort={true}>Distance</TableHeaderColumn>
   					<TableHeaderColumn dataField="time" width='20%' dataAlign="center" dataSort={true}>Time</TableHeaderColumn>
   					<TableHeaderColumn dataField="pace" width='20%' dataAlign="center">Pace</TableHeaderColumn>
-
+            <TableHeaderColumn dataField="date" width='20%' dataAlign="center" dataSort={true}>Date</TableHeaderColumn>
   				</BootstrapTable>
           <div id="addRun" className='mdc-fab' onClick={this.callModal.bind(this)}>
             <h3 id="add"> + </h3>
