@@ -81,6 +81,7 @@ class App extends Component {
             />
         }
         {user === undefined &&
+        <div className="max">
         <div className="App-intro">
           <FormGroup>
           <FormControl placeholder="Username" inputRef={ref => {
@@ -105,7 +106,8 @@ class App extends Component {
             </div>
           </div>
         </div>
-      }
+        </div>
+        }
       </div>
     );
   }
