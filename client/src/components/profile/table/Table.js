@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import './react-table.css'
+import Modal from './Modal'
 export default class Table extends Component{
     callModal(){
       this.mett()
@@ -13,9 +14,18 @@ export default class Table extends Component{
         </div>
       )
     }
+    createCustomModal = (onModalClose, onSave, columns, validateState, ignoreEditable) => {
+    const attr = {
+      onModalClose, onSave, columns, validateState, ignoreEditable
+    };
+    return (
+      <Modal { ... attr } />
+    );
+    }
   	render(){
   		const {} = this.props
   		const options = {
+        insertModal : this.createCustomModal,
         insertBtn : this.insertButton,
   			onRowClick: function(row) {
     			alert(`You click row id: ${row.id}`);
