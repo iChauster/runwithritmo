@@ -41,10 +41,10 @@ export default class Table extends Component{
   		return (
   			<div className='runs'>
   				<BootstrapTable data={products} options={options} striped={false} hover={true} bordered={false} tableStyle={ { "padding": "6px" } } insertRow>
-  					<TableHeaderColumn dataField="distance" width='60%' isKey={true} dataAlign="left" dataSort={true}>Distance</TableHeaderColumn>
-  					<TableHeaderColumn dataField="time" width='20%' dataAlign="center" dataSort={true}>Time</TableHeaderColumn>
-  					<TableHeaderColumn dataField="pace" width='20%' dataAlign="center">Pace</TableHeaderColumn>
-            <TableHeaderColumn dataField="date" width='20%' dataAlign="center" dataSort={true}>Date</TableHeaderColumn>
+  					<TableHeaderColumn dataField="distance" width='61%' isKey={true} dataAlign="left" dataSort={true}>Distance</TableHeaderColumn>
+  					<TableHeaderColumn dataField="time" width='13%' dataAlign="center" dataSort={true}>Time</TableHeaderColumn>
+  					<TableHeaderColumn dataField="pace" width='13%' dataAlign="center">Pace</TableHeaderColumn>
+            <TableHeaderColumn dataField="date" width='13%' dataAlign="center" dataSort={true}>Date</TableHeaderColumn>
   				</BootstrapTable>
           <div id="addRun" className='mdc-fab' onClick={this.callModal.bind(this)}>
             <h3 id="add"> + </h3>

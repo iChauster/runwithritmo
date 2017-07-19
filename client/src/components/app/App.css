@@ -10,24 +10,24 @@ html,body{
 }
 
 .App-header {
-  padding: 1em;
+  padding: 0.7em;
   margin:0;
   color: white;
-  height:11%;
-  background: #824B4A;
+  background: #60A6AF;
 }
 .App-header h2{
   font-family: AvenirNext-Bold, Helvetica;
   font-size: 2em;
   line-height: 1em;
   margin: 0.4em;
-  color: #F4F2F5;
+  color: #F4EDF1;
 }
 .App-header h3{
   font-family: AvenirNext-Bold, Helvetica;
   font-size:1em;
   margin:0;
-  color: #A1978D
+  color: #F4EDF1;
+  opacity: 0.7;
 }
 
 .App-intro {
