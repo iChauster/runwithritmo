@@ -65,7 +65,9 @@ export default class Table extends Component{
 }
 
 Table.propTypes = {
+  dispatch : PropTypes.func.isRequired,
 	data : PropTypes.arrayOf(
 		PropTypes.object.isRequired
 	).isRequired,
+
 }
