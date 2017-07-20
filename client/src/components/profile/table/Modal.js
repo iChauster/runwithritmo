@@ -26,8 +26,8 @@ export default class Modal extends Component {
       ignoreEditable
     } = this.props;
     return (
-      <div style={ { backgroundColor: '#F4EDF1', "borderRadius" : "10px" } } className='modal-content'>
-        <h2 style={ { color: '#2C2D31' } }>Custom Insert Modal</h2>
+      <div style={ { backgroundColor: '#F4EDF1', "borderRadius" : "0.4em" } } className='modal-content'>
+        <h2 style={ { color: '#1f4f6a', "position": "relative", "text-align": "center"  } }>Log a Run</h2>
         <div>
           {
             columns.map((column, i) => {
@@ -58,8 +58,8 @@ export default class Modal extends Component {
           }
         </div>
         <div>
-          <Button onClick={ onModalClose }>Cancel</Button>
-          <Button style={{backgroundColor : "#3AD96E"}} onClick={ () => this.handleSaveBtnClick(columns, onSave) }>Save</Button>
+          <Button onClick={ onModalClose } style={ {margin: "0.2em"} }>Cancel</Button>
+          <Button style={{backgroundColor : "#3AD96E", "margin": "0.2em", "postion": "relative"}} onClick={ () => this.handleSaveBtnClick(columns, onSave) }>Save</Button>
         </div>
       </div>
     );

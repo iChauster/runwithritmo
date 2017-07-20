@@ -8,6 +8,8 @@ import {
 } from '../../actions/actions';
 import Profile from '../profile/Profile';
 import { Button, FormControl, FormGroup } from 'react-bootstrap';
+import { WeatherWidget } from 'react-native-weather';
+
 class App extends Component {
   constructor(props) {
     super(props)
@@ -74,6 +76,12 @@ class App extends Component {
               <h3>Hello {user.username}! </h3>
             }
           </div>
+          <WeatherWidget
+            api={"https://api.darksky.net/forecast/0c802e6fca0ccdc2bdd45cc2748bb8dc/40.35,-74.66"}
+            lat={"lat"}
+            lng={"lng"}
+            location={"location"}
+          />
         </div>
         {user !== undefined &&
             <Profile 
