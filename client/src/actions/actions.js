@@ -62,7 +62,9 @@ export function getRuns(){
 
 }
 export function addRun(run, coordinates){
-	console.log('adding run' + run)
+	console.log('adding run')
+	console.log(run)
+	console.log(coordinates)
 	var options = {
 		method:'POST',
 		url : 'http://localhost:3000/postRun',
@@ -70,7 +72,7 @@ export function addRun(run, coordinates){
 			'cache-control' : 'no-cache',
 			'content-type' : 'application/x-www-form-urlencoded'
 		},
-		form : {length: run.length, long : coordinates.longitude, lat : coordinates.latitude, pace : run.pace, time : run.time, date:Date()}
+		form : {length: run.distance, long : coordinates.longitude, lat : coordinates.latitude, pace : run.pace, time : run.time, date:Date()}
 
 	};
 	return () => {

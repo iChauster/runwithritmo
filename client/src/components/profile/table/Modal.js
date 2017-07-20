@@ -1,11 +1,14 @@
 import React, { Component, PropTypes } from 'react';
+import {connect} from 'react-redux';
 import { Button, FormControl, FormGroup } from 'react-bootstrap';
-
-export default class Modal extends Component {
+import{
+  addRun
+} from '../../../actions/actions'
+class Modal extends Component {
   constructor(props) {
     super(props)
     this.st = {}
-  }
+  } 
   handleSaveBtnClick = () => {
     const { columns, onSave } = this.props;
     const newRow = {};
@@ -15,8 +18,17 @@ export default class Modal extends Component {
     // You should call onSave function and give the new row
     onSave(newRow);
 
+    var loc = navigator.geolocation;
+    if(loc){
+      loc.getCurrentPosition((position) => {
+        console.log(position)
+        var coordinates = position.coords;
+        const { dispatch } = this.props;
+        dispatch(addRun(newRow,coordinates));
+
+      });
+    }
     //TODO : implement save to server by dispatch
-    //    dispatch()
 
   }
 
@@ -30,7 +42,7 @@ export default class Modal extends Component {
     } = this.props;
     return (
       <div style={ { backgroundColor: '#F4EDF1', "borderRadius" : "0.4em" } } className='modal-content'>
-        <h2 style={ { color: '#1f4f6a', "position": "relative", "text-align": "center"  } }>Log a Run</h2>
+        <h2 style={ { color: '#1f4f6a', "position": "relative", "textAlign": "center"  } }>Log a Run</h2>
         <div>
           {
             columns.map((column, i) => {
@@ -68,3 +80,7 @@ export default class Modal extends Component {
     );
   }
 }
+Modal.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+};
+export default connect()(Modal);
