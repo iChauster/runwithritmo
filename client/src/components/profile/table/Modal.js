@@ -14,7 +14,10 @@ export default class Modal extends Component {
     }, this);
     // You should call onSave function and give the new row
     onSave(newRow);
+
     //TODO : implement save to server by dispatch
+    //    dispatch()
+
   }
 
   render() {

@@ -58,6 +58,30 @@ export function register (u, p){
 		});
 	}
 }
+export function getRuns(){
+
+}
+export function addRun(run, coordinates){
+	console.log('adding run' + run)
+	var options = {
+		method:'POST',
+		url : 'http://localhost:3000/postRun',
+		headers : {
+			'cache-control' : 'no-cache',
+			'content-type' : 'application/x-www-form-urlencoded'
+		},
+		form : {length: run.length, long : coordinates.longitude, lat : coordinates.latitude, pace : run.pace, time : run.time, date:Date()}
+
+	};
+	return () => {
+		request(options, function (req, res, next){
+			console.log(res);
+			if(res != null && req.statusCode === 200){
+				console.log('saved')
+			}
+		});
+	}
+}
 export function foundUser(user){
 	return {
 		type : FOUND_USER,

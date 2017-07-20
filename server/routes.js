@@ -11,4 +11,6 @@ module.exports = function(app, passport){
 
 	app.post('/logout', users.logout);
 
+	app.post('/postRun', users.postRun);
+
 }

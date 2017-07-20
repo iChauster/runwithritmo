@@ -6,13 +6,21 @@ import { withGoogleMap, GoogleMap, Marker } from "react-google-maps";
 import withScriptjs from "react-google-maps/lib/async/withScriptjs";
 import '@material/fab/dist/mdc.fab.css'
 import Table from './table/Table'
+
 class Profile extends Component {
   constructor(props) {
     console.log('constructor of profile reached')
     super(props)
+    console.log(this.props.coords)
   }
   componentDidMount(){
     console.log('mounted Profile')
+    var loc = navigator.geolocation;
+    if(loc){
+      loc.getCurrentPosition((position) => {
+        console.log(position)
+      });
+    }
   }
   componentWillUnmount(){
   }

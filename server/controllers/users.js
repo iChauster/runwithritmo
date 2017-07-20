@@ -48,7 +48,31 @@ module.exports.login = function (req, res, next){
 		})
 	})(req,res,next)
 }
-
+module.exports.postRun = function (req, res, next){
+	console.log('adding run');
+	if(req.user && req.body.length){
+		User.findOneAndUpdate({username : usame}, 
+		{
+			$push:{
+				runs:{
+					length : req.body.length,
+					subpoints : [{longitude : req.body.long, latitude : req.body.lat}],
+					pace : req.body.pace,
+					time : req.body.time,
+					date: req.body.date
+				}
+			}
+		},
+		function (err, numberAffected, raw){
+			if(err){
+				console.log(err);
+			}
+			console.log(numberAffected);
+		});
+	}else{
+		res.status(400).json({MESSAGE : "NO LOGIN"});
+	}
+}
 module.exports.check = function (req, res, next){
 	console.log('CHECKING');
 	if(!req.user){
