@@ -3,10 +3,10 @@ const fs = require("fs");
 const mongoose = require('mongoose')
 const passport = require('passport')
 const sqlite = require("sql.js");
-const URI = "mongodb://ichauster:straightup@ds157342.mlab.com:57342/runritmo"
+const URI = "mongodb://ichauster:straightup@ds151820.mlab.com:51820/runwithritmo"
 const app = express();
 
-mongoose.connect('mongodb://genesisboys:gradecheck@ds019048.mlab.com:19048/gradecheck');
+mongoose.connect(URI);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function (callback) {

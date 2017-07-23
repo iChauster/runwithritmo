@@ -78,7 +78,7 @@ export function addRun(run, coordinates){
 	return () => {
 		request(options, function (req, res, next){
 			console.log(res);
-			if(res != null && req.statusCode === 200){
+			if(res != null && res.statusCode === 200){
 				console.log('saved')
 			}
 		});

@@ -1,7 +1,5 @@
-var mongoose = require('mongoose'),
-	Schema = mongoose.Schema;
-
-var Run = new Schema({
+var mongoose = require('mongoose')
+var Run = mongoose.Schema({
 	length : Number,
 	subpoints : [{longitude : Number, latitude : Number}],
 	pace : String,
