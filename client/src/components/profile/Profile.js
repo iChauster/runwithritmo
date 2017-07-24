@@ -1,8 +1,10 @@
+/*global google*/
 import React, { Component, PropTypes } from 'react';
 import {connect} from 'react-redux';
 import './Profile.css';
 //import { Button, FormControl, FormGroup } from 'react-bootstrap';
 import { withGoogleMap, GoogleMap, Marker } from "react-google-maps";
+import HeatmapLayer from "react-google-maps/lib/visualization/HeatmapLayer";
 import withScriptjs from "react-google-maps/lib/async/withScriptjs";
 import '@material/fab/dist/mdc.fab.css'
 import Table from './table/Table'
@@ -12,20 +14,7 @@ class Profile extends Component {
     console.log('constructor of profile reached')
     super(props)
     console.log(this.props.coords)
-    const {
-      profile
-    } = this.props
-    var arr = profile.runs;
-    var locations = [];
-    for (var obj in arr) {
-      var location = arr[obj].subpoints[0]
-      var imp = {position : {
-        lat : location.latitude,
-        lng : location.longitude
-      }}
-      locations.push(imp);
-    }
-    this.markers = locations;
+    
   }
   componentDidMount(){
     console.log('mounted Profile')
@@ -38,7 +27,19 @@ class Profile extends Component {
   }
   componentWillUnmount(){
   }
-  
+  getData(google){
+    const {
+      profile
+    } = this.props
+    var arr = profile.runs;
+    var locations = [];
+    for (var obj in arr) {
+      var location = arr[obj].subpoints[0]
+      var imp = new google.maps.LatLng(location.latitude, location.longitude);
+      locations.push(imp);
+    }
+    return locations
+  }
   render() {
     const {
       profile,
@@ -51,19 +52,15 @@ class Profile extends Component {
   				defaultZoom={18}
   				defaultCenter={{lat: 40.35, lng: -74.66}}
   				onClick={props.onMapClick}>
-          {props.markers.map(marker => (
-      <Marker
-        {...marker}
-        onRightClick={() => props.onMarkerRightClick(marker)}
-      />
-      ))}
+          <HeatmapLayer 
+            data={this.getData(google)}> </HeatmapLayer>
   			</GoogleMap>
   			)
   		));
     return (
     	<div>
     	<GettingStartedGoogleMap
-  		googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyAz5AiYQrWAfsSpOt7Q-Ap1YkI4ptIkgVM"
+  		googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyAz5AiYQrWAfsSpOt7Q-Ap1YkI4ptIkgVM&libraries=visualization"
   		loadingElement={
       		<div style={{ width: `100%`, height: `70%`}}></div>
     	}
