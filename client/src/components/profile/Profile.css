@@ -19,7 +19,7 @@ html,body{
 	bottom: 3.5em;
 	background: #F4EDF1;
 	border-radius: 2em;
-	min-height: 20%;
+	height: 20%;
 	box-shadow: 0 10px 11px 0 rgba(0,0,0,0.50);
 }
 #add{

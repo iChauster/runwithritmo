@@ -12,6 +12,20 @@ class Profile extends Component {
     console.log('constructor of profile reached')
     super(props)
     console.log(this.props.coords)
+    const {
+      profile
+    } = this.props
+    var arr = profile.runs;
+    var locations = [];
+    for (var obj in arr) {
+      var location = arr[obj].subpoints[0]
+      var imp = {position : {
+        lat : location.latitude,
+        lng : location.longitude
+      }}
+      locations.push(imp);
+    }
+    this.markers = locations;
   }
   componentDidMount(){
     console.log('mounted Profile')
@@ -59,11 +73,7 @@ class Profile extends Component {
   		mapElement={
   			<div style={{ width: `100%`, height: `100%` }}></div>
   		}
-  		markers={[{ position: {
-        lat: 40.35,
-        lng: -74.66,
-        key: 'Lewis Library'}
-    	}]}>
+  		markers={this.markers}>
 	    </GettingStartedGoogleMap>
       <Table
         data={profile.runs}/>
