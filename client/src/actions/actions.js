@@ -84,7 +84,7 @@ export function addRun(run, coordinates){
 			'cache-control' : 'no-cache',
 			'content-type' : 'application/x-www-form-urlencoded'
 		},
-		form : {length: run.distance, long : coordinates.longitude, lat : coordinates.latitude, pace : run.pace, time : run.time, date:Date()}
+		form : {length: run.length, long : coordinates.longitude, lat : coordinates.latitude, pace : run.pace, time : run.time, date:Date()}
 
 	};
 	return () => {
