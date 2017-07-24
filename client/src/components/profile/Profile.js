@@ -65,7 +65,8 @@ class Profile extends Component {
         key: 'Lewis Library'}
     	}]}>
 	    </GettingStartedGoogleMap>
-      <Table />
+      <Table
+        data={profile.runs}/>
     	</div>
     	);
     }

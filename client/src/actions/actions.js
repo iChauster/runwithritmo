@@ -11,7 +11,8 @@ export function initialize(){
 				console.log(error)
 			if(response.statusCode === 200){
 				var json = JSON.parse(body);
-				dispatch(foundUser(json["USER"]));
+				console.log(json);
+				dispatch(getFullUser(json["USER"]))
 			}
 		});
 	}
@@ -50,15 +51,26 @@ export function register (u, p){
 		form : {username : u, password : p}
 	};
 	return (dispatch) => {
-		request(options, function (req, res, next){
-			console.log(res)
-			if(res != null && res.statusCode === 200){
-				dispatch(foundUser(res.json))
+		request(options, function (error, response, body){
+			console.log(response)
+			if(response != null && response.statusCode === 200){
+				var json = JSON.parse(body);
+				dispatch(foundUser(json))
 			}
 		});
 	}
 }
-export function getRuns(){
+export function getFullUser(user){
+	console.log("getting full user");
+	return(dispatch) => {
+		request('http://localhost:3000/user/search/username/' + user.username, function (error, response, body){
+			if(response.statusCode === 200){
+				var json = JSON.parse(body);
+				console.log(json);
+				dispatch(foundUser(json["USER"]));
+			}
+		});
+	}
 
 }
 export function addRun(run, coordinates){
@@ -76,7 +88,7 @@ export function addRun(run, coordinates){
 
 	};
 	return () => {
-		request(options, function (req, res, next){
+		request(options, function (error, res, body){
 			console.log(res);
 			if(res != null && res.statusCode === 200){
 				console.log('saved')

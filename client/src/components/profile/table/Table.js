@@ -3,6 +3,10 @@ import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import './react-table.css'
 import Modal from './Modal'
 export default class Table extends Component{
+    constructor(props) {
+      console.log('constructor of table reached')
+      super(props)
+    }
     callModal(){
       this.mett()
     }
@@ -23,7 +27,7 @@ export default class Table extends Component{
     );
     }
   	render(){
-  		const {} = this.props
+  		const {data} = this.props
   		const options = {
         insertModal : this.createCustomModal,
         insertBtn : this.insertButton,
@@ -34,24 +38,10 @@ export default class Table extends Component{
     			alert(`You double click row id: ${row.id}`);
   			}
 		};
-  		var products = [{
-  			distance: "3.3 miles",
-  			time: "15m 23s",
-  			pace: "5:12",
-        id : 1,
-        date: "6/7/17"
-  		},{
-  			distance: "0.9 miles",
-  			time: "4m 23s",
-  			pace: "3:12",
-        id : 2,
-        date: "5/10/17"
-  		}];
-		// It's a data format example.
   		return (
   			<div className='runs'>
-  				<BootstrapTable data={products} options={options} striped={false} hover={true} bordered={false} tableStyle={ { "padding": "6px" } } insertRow>
-  					<TableHeaderColumn dataField="distance" width='61%' isKey={true} dataAlign="left" dataSort={true}>Distance</TableHeaderColumn>
+  				<BootstrapTable data={data} options={options} striped={false} hover={true} bordered={false} tableStyle={ { "padding": "6px" } } insertRow>
+  					<TableHeaderColumn dataField="length" width='61%' isKey={true} dataAlign="left" dataSort={true}>Distance</TableHeaderColumn>
   					<TableHeaderColumn dataField="time" width='13%' dataAlign="center" dataSort={true}>Time</TableHeaderColumn>
   					<TableHeaderColumn dataField="pace" width='13%' dataAlign="center">Pace</TableHeaderColumn>
             <TableHeaderColumn dataField="date" width='13%' dataAlign="center" dataSort={true}>Date</TableHeaderColumn>

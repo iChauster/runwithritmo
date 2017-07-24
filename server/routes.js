@@ -13,4 +13,6 @@ module.exports = function(app, passport){
 
 	app.post('/postRun', users.postRun);
 
+	app.get('/user/search/username/:username', users.searchUsername);
+
 }
