@@ -43,11 +43,17 @@ module.exports.login = function (req, res, next){
 			return res.status(400).json({MESSAGE : "INCORRECT CREDENTIALS"});
 		}
 		req.logIn(user, function (err){
-			console.log(user);
 			if(err){
 				return next(err)
 			}else{
-				return res.json({MESSAGE : "SUCCESS", "USER" : user}) 
+				user.populate('runs', function (err, u){
+					if(err){
+						return next(err)
+					}else{
+						console.log(u)
+						return res.json({MESSAGE : "SUCCESS", "USER" : u})
+					}
+				});
 			}
 		})
 	})(req,res,next)
@@ -69,7 +75,7 @@ module.exports.postRun = function (req, res, next){
 						var array = user.runs
 						array.push(id);
 						user.runs = array
-						user.save(function (err) {
+						user.save(function (err) { 
 							if(err) {
 								console.log(err);
 							}
