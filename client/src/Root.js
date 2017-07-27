@@ -1,20 +1,26 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import configureStore from './configureStore';
+import PropTypes from 'prop-types'
+import {
+  HashRouter,
+  Route,
+  Link
+} from 'react-router-dom';
 import App from './components/app/App';
 
-const store = configureStore();
 
-export default class Root extends Component {
-	componentDidMount(){
-    console.log('mounted');
-    
-  }
-  render() {
-    return (
-      <Provider store={store}>
-        <App />
-      </Provider>
-    );
-  }
+const Root = ({ store }) => (
+  <Provider store={store}>
+    <HashRouter>
+      <div>
+        <Route exact path="/" component={App} />
+      </div>
+   </HashRouter >
+  </Provider>
+)
+
+Root.propTypes = {
+  store: PropTypes.object.isRequired
 }
+
+export default Root
