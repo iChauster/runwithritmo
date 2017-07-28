@@ -1,21 +1,21 @@
-import React, { Component } from 'react';
+import React, {PropTypes} from 'react';
 import { Provider } from 'react-redux';
-import PropTypes from 'prop-types'
 import {
-  HashRouter,
-  Route,
-  Link
+  BrowserRouter as Router,
+  Route
 } from 'react-router-dom';
 import App from './components/app/App';
+import SearchProfile from './components/search/SearchProfile'
 
 
 const Root = ({ store }) => (
   <Provider store={store}>
-    <HashRouter>
+    <Router>
       <div>
         <Route exact path="/" component={App} />
+        <Route path="/search" component={SearchProfile} />
       </div>
-   </HashRouter >
+   </Router >
   </Provider>
 )
 
