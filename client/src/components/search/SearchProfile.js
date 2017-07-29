@@ -13,7 +13,7 @@ import {
 } from "react-timeseries-charts";
 import { TimeSeries, TimeRange } from "pondjs";
 
-//import { Button, FormControl, FormGroup } from 'react-bootstrap';
+import {Col} from 'react-bootstrap';
 
 class SearchProfile extends Component {
   constructor(props){
@@ -36,12 +36,24 @@ class SearchProfile extends Component {
   updateWindowDimensions() {
     this.setState({ width: window.innerWidth, height: window.innerHeight });
   }
+  calculateTotalRuns(){
+    return this.runs.length
+  }
+  calculateTotalDistance(){
+    var sum = 0
+    this.runs.forEach((element, index) => {
+      sum += element.length;
+    }, this);
+    return sum;
+  }
+
   render() {
     const {
       user
     } = this.props
     if(user != null){
       var pointsArray = []
+      this.runs = user.runs
       user.runs.forEach((element, index) => {
         var runDataArray = []
         runDataArray.push(Date.parse(element.date))
@@ -56,6 +68,8 @@ class SearchProfile extends Component {
       console.log(data)
       const timeSeries = new TimeSeries(data)
       this.ts = timeSeries
+      this.distance = this.calculateTotalDistance()
+      this.totalRuns = this.calculateTotalRuns()
       console.log(this.ts)
     }
     return (
@@ -68,7 +82,7 @@ class SearchProfile extends Component {
         <div className="chart">
           {user !== undefined &&
             <ChartContainer timeRange={this.ts.timerange()} width={this.state.width-40}>
-                <ChartRow height="200">
+                <ChartRow height={this.state.height * .4}>
                     <YAxis id="y" label="Miles" min={this.ts.min() - 10} max={this.ts.max() + 10}/>
                     <Charts>
                         <LineChart axis="y" series={this.ts}/>
@@ -77,6 +91,24 @@ class SearchProfile extends Component {
             </ChartContainer>
           }
         </div>
+        <Col xs={4} md={4}>
+          <h1> Total Runs </h1>
+          <div className="box">
+            <h2> {this.totalRuns} </h2>
+          </div>
+        </Col>
+        <Col xs={4} md={4}>
+          <h1> Total Distance </h1>
+          <div className="box">
+            <h2> {this.distance} miles</h2>
+          </div>
+        </Col>
+        <Col xs={4} md={4}>
+          <h1> Pace </h1>
+          <div className="box">
+            
+          </div>
+        </Col>
       </div>
     );
   }
