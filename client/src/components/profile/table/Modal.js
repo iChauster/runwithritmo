@@ -36,11 +36,35 @@ class Modal extends Component {
       validateState,
       ignoreEditable
     } = this.props;
+    const errorLength = validateState["length"] ? (<span className='help-block bg-danger'>{ validateState["length"] }</span>) : null;
+    const errorTime = validateState["time"] ? (<span className='help-block bg-danger'>{ validateState["time"] }</span>) : null;
+    const errorPace = validateState["pace"] ? (<span className='help-block bg-danger'>{ validateState["pace"] }</span>) : null;
+
     return (
       <div style={ { backgroundColor: '#F4EDF1', "borderRadius" : "0.4em" } } className='modal-content'>
         <h2 style={ { color: '#1f4f6a', "position": "relative", "textAlign": "center"  } }>Log a Run</h2>
         <div>
-          {
+          
+            <FormGroup key={ "length" }>
+              <label>{ "Distance" } : </label>
+              <FormControl inputRef={ref =>{this.st["length"] = ref}} placeholder={"length"} />
+              { errorLength }
+            </FormGroup>
+            
+
+            <FormGroup key={ "time" }>
+              <label>{ "Time" } : </label>
+              <FormControl inputRef={ref =>{this.st["time"] = ref}} placeholder={"time"} />
+              { errorTime }
+            </FormGroup>
+
+            <FormGroup key={ "pace" }>
+              <label>{ "Pace" } : </label>
+              <FormControl inputRef={ref =>{this.st["pace"] = ref}} placeholder={"pace"} />
+              { errorPace }
+            </FormGroup>
+            {
+            /*
             columns.map((column, i) => {
               const {
                 editable,
@@ -66,7 +90,8 @@ class Modal extends Component {
                 </FormGroup>
               );
             })
-          }
+            */
+            }
         </div>
         <div>
           <Button onClick={ onModalClose } style={ {margin: "0.2em"} }>Cancel</Button>
