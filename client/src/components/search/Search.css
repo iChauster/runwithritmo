@@ -30,6 +30,9 @@ html,body{
   margin: 0.4em;
   color: #F4EDF1;
 }
+.chart{
+  padding:20px;
+}
 #brand{
   display: table-cell;
   vertical-align: middle;
