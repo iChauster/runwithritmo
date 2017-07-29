@@ -13,19 +13,7 @@ class Profile extends Component {
   constructor(props) {
     console.log('constructor of profile reached')
     super(props)
-    console.log(this.props.coords)
     
-  }
-  componentDidMount(){
-    console.log('mounted Profile')
-    var loc = navigator.geolocation;
-    if(loc){
-      loc.getCurrentPosition((position) => {
-        console.log(position)
-      });
-    }
-  }
-  componentWillUnmount(){
   }
   getData(google){
     const {

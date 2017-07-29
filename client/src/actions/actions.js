@@ -12,7 +12,7 @@ export function initialize(){
 			if(response.statusCode === 200){
 				var json = JSON.parse(body);
 				console.log(json);
-				dispatch(getFullUser(json["USER"]))
+				dispatch(getFullUser(json["USER"]["username"]))
 			}
 		});
 	}
@@ -63,7 +63,7 @@ export function register (u, p){
 export function getFullUser(user){
 	console.log("getting full user");
 	return(dispatch) => {
-		request('http://localhost:3000/user/search/username/' + user.username, function (error, response, body){
+		request('http://localhost:3000/user/search/username/' + user, function (error, response, body){
 			if(response.statusCode === 200){
 				var json = JSON.parse(body);
 				console.log(json);
@@ -74,9 +74,6 @@ export function getFullUser(user){
 
 }
 export function addRun(run, coordinates){
-	console.log('adding run')
-	console.log(run)
-	console.log(coordinates)
 	var options = {
 		method:'POST',
 		url : 'http://localhost:3000/postRun',
@@ -89,7 +86,6 @@ export function addRun(run, coordinates){
 	};
 	return () => {
 		request(options, function (error, res, body){
-			console.log(res);
 			if(res != null && res.statusCode === 200){
 				console.log('saved')
 			}

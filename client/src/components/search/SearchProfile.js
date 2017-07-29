@@ -3,16 +3,21 @@ import {connect} from 'react-redux';
 import {
   getFullUser
 } from '../../actions/actions';
-import { Button, FormControl, FormGroup } from 'react-bootstrap';
+import './Search.css'
+//import { Button, FormControl, FormGroup } from 'react-bootstrap';
 
 class SearchProfile extends Component {
   constructor(props) {
     super(props)
-    console.log(props);
+    
+
   }
   componentDidMount(){
     console.log('mounted')
     const { dispatch } = this.props;
+    const username = this.props.match.params.username
+    console.log("PROFILE : " + username)
+    dispatch(getFullUser(username))
     
   }
   componentWillUnmount(){
@@ -20,12 +25,19 @@ class SearchProfile extends Component {
   render() {
     return (
       <div className="App">
-        <h1> search </h1>
+        <div className="header">
+          <div id="brand">
+            <h1> @{this.props.match.params.username} </h1>
+          </div>
+        </div>
       </div>
     );
   }
 }
 
+SearchProfile.propTypes = {
+  dispatch: PropTypes.func.isRequired 
+}
 function mapStateToProps(state) {
   const {loginReducer} = state
   const {user} = loginReducer

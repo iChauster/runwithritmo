@@ -12,7 +12,6 @@ import { Button, FormControl, FormGroup } from 'react-bootstrap';
 class App extends Component {
   constructor(props) {
     super(props)
-    console.log(props);
     this.state = {date : new Date()}
   }
   componentDidMount(){
@@ -38,8 +37,6 @@ class App extends Component {
     var username = this.loginInput.value;
     var password = this.passInput.value;
     if (username !== "" && password !== "") {
-          console.log(this.loginInput.value);
-          console.log(this.passInput.value)
           this.props.dispatch(login(username,password))
     }else{
       alert('Please enter a username and password!');

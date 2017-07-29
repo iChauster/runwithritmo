@@ -13,7 +13,7 @@ const Root = ({ store }) => (
     <Router>
       <div>
         <Route exact path="/" component={App} />
-        <Route path="/search" component={SearchProfile} />
+        <Route path="/search/:username" component={SearchProfile} />
       </div>
    </Router >
   </Provider>

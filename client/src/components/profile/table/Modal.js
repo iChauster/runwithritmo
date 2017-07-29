@@ -21,15 +21,11 @@ class Modal extends Component {
     var loc = navigator.geolocation;
     if(loc){
       loc.getCurrentPosition((position) => {
-        console.log(position)
         var coordinates = position.coords;
         const { dispatch } = this.props;
         dispatch(addRun(newRow,coordinates));
-
       });
     }
-    //TODO : implement save to server by dispatch
-
   }
 
   render() {

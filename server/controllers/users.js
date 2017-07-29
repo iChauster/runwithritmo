@@ -110,25 +110,20 @@ module.exports.check = function (req, res, next){
 	}
 }
 module.exports.searchUsername = function (req, res, next){
-	if(req.user){
-		User.findOne({username : req.params.username}, function (err, user){
-			if (user) {
-				user.populate('runs', function (err, u){
-					if(err){
-						return next(err)
-					}else{
-						console.log(u)
-						return res.json({MESSAGE : "SUCCESS", "USER" : u})
-					}
-				});
-        	} else {
-            	return res.status(400).end('User not found');
-        	}
-		})
-	}else{
-		console.log('needs login');
-		return res.status(321).json({MESSAGE : "NEEDS LOGIN"});
-	}
+	User.findOne({username : req.params.username}, function (err, user){
+		if (user) {
+			user.populate('runs', function (err, u){
+				if(err){
+					return next(err)
+				}else{
+					console.log(u)
+					return res.json({MESSAGE : "SUCCESS", "USER" : u})
+				}
+			});
+    	} else {
+        	return res.status(400).end('User not found');
+    	}
+	})
 }
 module.exports.logout = function (req, res, next){
 	req.logout();
