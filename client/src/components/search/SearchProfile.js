@@ -46,7 +46,9 @@ class SearchProfile extends Component {
     }, this);
     return sum;
   }
-
+  calculateFastestPace(){
+    
+  }
   render() {
     const {
       user
