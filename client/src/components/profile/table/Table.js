@@ -2,10 +2,12 @@ import React, { Component, PropTypes } from 'react';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import './react-table.css'
 import Modal from './Modal'
+const dateFormat = require('dateformat')
 export default class Table extends Component{
     constructor(props) {
       console.log('constructor of table reached')
       super(props)
+      dateFormat.masks.smoothDate = 'm.d.yy';
     }
     callModal(){
       this.mett()
@@ -27,7 +29,15 @@ export default class Table extends Component{
     );
     }
   	render(){
-  		const {data} = this.props
+  		var {data} = this.props
+      
+      for(var i = 0; i < data.length; i ++){
+        var obj = data[i];
+        var date = new Date(data[i]["date"])
+        obj["date"] = dateFormat(date, "smoothDate")
+      }
+      data = data.reverse()
+
   		const options = {
         insertModal : this.createCustomModal,
         insertBtn : this.insertButton,
