@@ -46,16 +46,27 @@ html,body{
   color: #F4EDF1;
 }
 .box{
-  height: 30%;
-  border: solid #737767 1px;
+  height: 38%;
   display: table;
   width:100%;
+  /* Rectangle 2: */
+  background: #2C2D31;
+  border: 4px solid #2C2D31;
+  border-radius: 20px;
+}
+.box h1{
+  /* Total Runs :: */
+  font-family: AvenirNext-Bold;
+  font-size: 36px;
+  color: #F4EDF1;
 }
 .box h2 {
   /* 53: */
   font-family: AvenirNext-Medium;
   font-size: 4em;
-  color: #737767;
+  color: #F4EDF1;
+}
+.center{
   display: table-cell;
   text-align: center;
   vertical-align: middle;

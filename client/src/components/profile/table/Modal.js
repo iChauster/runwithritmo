@@ -12,9 +12,10 @@ class Modal extends Component {
   handleSaveBtnClick = () => {
     const { columns, onSave } = this.props;
     const newRow = {};
-    columns.forEach((column, i) => {
-      newRow[column.field] = this.st[column.field].value;
-    }, this);
+    newRow["length"] = this.st["length"].value;
+    newRow["time"] = this.st["time"].value;
+    newRow["pace"] = this.st["pace"].value;
+    newRow["date"] = new Date();
     // You should call onSave function and give the new row
     onSave(newRow);
 
@@ -47,20 +48,20 @@ class Modal extends Component {
           
             <FormGroup key={ "length" }>
               <label>{ "Distance" } : </label>
-              <FormControl inputRef={ref =>{this.st["length"] = ref}} placeholder={"length"} />
+              <FormControl inputRef={ref =>{this.st["length"] = ref}} placeholder={"Length"} />
               { errorLength }
             </FormGroup>
             
 
             <FormGroup key={ "time" }>
               <label>{ "Time" } : </label>
-              <FormControl inputRef={ref =>{this.st["time"] = ref}} placeholder={"time"} />
+              <FormControl inputRef={ref =>{this.st["time"] = ref}} placeholder={"Time"} />
               { errorTime }
             </FormGroup>
 
             <FormGroup key={ "pace" }>
               <label>{ "Pace" } : </label>
-              <FormControl inputRef={ref =>{this.st["pace"] = ref}} placeholder={"pace"} />
+              <FormControl inputRef={ref =>{this.st["pace"] = ref}} placeholder={"Pace"} />
               { errorPace }
             </FormGroup>
             {
