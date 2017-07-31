@@ -46,7 +46,7 @@ html,body{
   color: #F4EDF1;
 }
 .box{
-  height: 38%;
+  height: 33%;
   display: table;
   width:100%;
   /* Rectangle 2: */
@@ -65,6 +65,9 @@ html,body{
   font-family: AvenirNext-Medium;
   font-size: 4em;
   color: #F4EDF1;
+}
+.icon{
+  padding-bottom:10px;
 }
 .center{
   display: table-cell;

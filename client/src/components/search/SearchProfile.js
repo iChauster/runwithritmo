@@ -18,14 +18,15 @@ import {
 } from './svg.js'
 import SwipeableViews from 'react-swipeable-views'
 import { TimeSeries } from "pondjs";
-
+const dateFormat = require('dateformat')
 import {Col} from 'react-bootstrap';
 
 class SearchProfile extends Component {
   constructor(props){
     super(props);
     this.state = { width: '0', height: '0' };
-  this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+    dateFormat.masks.smoothDate = 'm.d.yy';
   }
   componentDidMount(){
     console.log('mounted')
@@ -68,6 +69,7 @@ class SearchProfile extends Component {
         runDataArray.push(element.length)
         pointsArray.push(runDataArray)
       }, this);
+      this.lastRun = dateFormat(new Date(user.runs[user.runs.length - 1].date), "smoothDate");
       const data = {
         "name" : 'Miles v Time',
         "columns" : ["time", "value"],
@@ -101,33 +103,85 @@ class SearchProfile extends Component {
         </div>
         <SwipeableViews enableMouseEvents>
         <div>
+        <div className="icon">
+        < SVGRuns />
+        </div>
         <Col xs={4} md={4}>
           <div className="box">
             <div className="center">
-            < SVGRuns />
+            <h1> Last Run </h1>
+            <h2> {this.lastRun} </h2>
+            </div>
+          </div>
+        </Col>
+        <Col xs={4} md={4}>
+          <div className="box">
+            <div className="center">
             <h1> Total Runs </h1>
             <h2> {this.totalRuns} </h2>
             </div>
           </div>
         </Col>
-        </div>
-        <div>
         <Col xs={4} md={4}>
           <div className="box">
             <div className="center">
-            < SVGDistance />
+            <h1> Streak </h1>
+            <h2> 0 </h2>
+            </div>
+          </div>
+        </Col>
+        </div>
+        <div>
+        <div className="icon">
+        < SVGDistance />
+        </div>
+        <Col xs={4} md={4}>
+          <div className="box">
+            <div className="center">
             <h1> Total Distance </h1>
+            <h2> {this.distance} miles</h2>
+            </div>
+          </div>
+        </Col>
+        <Col xs={4} md={4}>
+          <div className="box">
+            <div className="center">
+            <h1> Average Distance </h1>
+            <h2> {this.distance} miles</h2>
+            </div>
+          </div>
+        </Col>
+        <Col xs={4} md={4}>
+          <div className="box">
+            <div className="center">
+            <h1> Longest Distance </h1>
             <h2> {this.distance} miles</h2>
             </div>
           </div>
         </Col>
         </div>
         <div>
+        <div className ="icon">
+        < SVGPace />
+        </div>
         <Col xs={4} md={4}>
           <div className="box">
             <div className="center">
-            < SVGPace />
-            <h1> Pace </h1>
+            <h1> Fastest Pace </h1>
+            </div>
+          </div>
+        </Col>
+        <Col xs={4} md={4}>
+          <div className="box">
+            <div className="center">
+            <h1> Average Pace </h1>
+            </div>
+          </div>
+        </Col>
+        <Col xs={4} md={4}>
+          <div className="box">
+            <div className="center">
+            <h1> Pace Improvement</h1>
             </div>
           </div>
         </Col>

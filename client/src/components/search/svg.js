@@ -1,10 +1,12 @@
 import React from 'react';
 
+var color = "#737767"
+var height = "3em"
 export function SVGRuns() {
-	return(<svg width="146px" height="4.5em" viewBox="0 0 146 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+	return(<svg width="146px" height={height} viewBox="0 0 146 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                 <defs></defs>
                 <g id="Profile" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-                    <g id="Desktop-HD" transform="translate(-180.000000, -611.000000)" fillRule="nonzero" fill="#F4EDF1">
+                    <g id="Desktop-HD" transform="translate(-180.000000, -611.000000)" fillRule="nonzero" fill={color}>
                         <g id="Runs" transform="translate(47.000000, 561.000000)">
                             <g id="001-man" transform="translate(133.000000, 50.000000)">
                                 <path d="M44.7806548,9.9764881 L89.5758929,9.9764881 C90.7529762,9.9764881 91.7068452,9.02232143 91.7068452,7.8452381 C91.7068452,6.66815476 90.7529762,5.7139881 89.5758929,5.7139881 L44.7806548,5.7139881 C43.6035714,5.7139881 42.6494048,6.66815476 42.6494048,7.8452381 C42.6494048,9.02232143 43.6035714,9.9764881 44.7806548,9.9764881 Z" id="Shape"></path>
@@ -20,11 +22,11 @@ export function SVGRuns() {
             </svg>)
 }
 export function SVGDistance(){
-	return(<svg width="100px" height="4.5em" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+	return(<svg width="100px" height={height} viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                   <desc>Created with Sketch.</desc>
                   <defs></defs>
                   <g id="Profile" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-                      <g id="Desktop-HD" transform="translate(-670.000000, -605.000000)" fillRule="nonzero" fill="#F4EDF1">
+                      <g id="Desktop-HD" transform="translate(-670.000000, -605.000000)" fillRule="nonzero" fill={color}>
                           <g id="Distance" transform="translate(514.000000, 561.000000)">
                               <g id="003-road" transform="translate(156.000000, 44.000000)">
                                   <path d="M83.3333984,20.8333984 C74.1435547,20.8333984 66.6667969,28.3101563 66.6667969,37.5 C66.6667969,43.7101562 73.8234375,54.8535156 78.2998047,61.2208984 C78.0314453,61.4244141 77.79375,61.6703125 77.6449219,61.9976562 C77.1931641,62.9884766 77.5837891,64.1480469 78.5136719,64.6730469 C77.6042969,65.2326172 77.25625,66.4044922 77.7425781,67.3789062 C78.1087891,68.109375 78.8431641,68.5304687 79.6082031,68.5304687 C79.9214844,68.5304687 80.2388672,68.4591797 80.5378906,68.3107422 L84.2552734,66.4519531 L84.25625,66.4517578 L84.2652344,66.4472656 L84.2675781,66.4423828 C84.5451172,66.3029297 84.7931641,66.1044922 84.9875,65.8511719 C86.5234375,63.8447266 100,46.0144531 100,37.5 C100,28.3101563 92.5232422,20.8333984 83.3333984,20.8333984 Z M83.3333984,41.6666016 C81.0365234,41.6666016 79.1667969,39.796875 79.1667969,37.5 C79.1667969,35.203125 81.0365234,33.3333984 83.3333984,33.3333984 C85.6302734,33.3333984 87.5,35.203125 87.5,37.5 C87.5,39.796875 85.6302734,41.6666016 83.3333984,41.6666016 Z" id="Shape"></path>
@@ -43,11 +45,11 @@ export function SVGDistance(){
               </svg>);
 }
 export function SVGPace(){
-	return (<svg width="100px" height="4.5em" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+	return (<svg width="100px" height={height} viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                   <desc>Created with Sketch.</desc>
                   <defs></defs>
                   <g id="Profile" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-                      <g id="Desktop-HD" transform="translate(-1138.000000, -612.000000)" fillRule="nonzero" fill="#F4EDF1">
+                      <g id="Desktop-HD" transform="translate(-1138.000000, -612.000000)" fillRule="nonzero" fill={color}>
                           <g id="Pace" transform="translate(982.000000, 561.000000)">
                               <g id="002-time" transform="translate(156.000000, 51.000000)">
                                   <path d="M50,0 C49.0783333,0 48.3333333,0.745 48.3333333,1.66666667 L48.3333333,23.82 C48.3333333,24.7416667 49.0783333,25.4866667 50,25.4866667 C50.9216667,25.4866667 51.6666667,24.7416667 51.6666667,23.82 L51.6666667,3.36333333 C76.6316667,4.24333333 96.6666667,24.8266667 96.6666667,50 C96.6666667,75.7316667 75.7316667,96.6666667 50,96.6666667 C24.2683333,96.6666667 3.33333333,75.7316667 3.33333333,50 C3.33333333,37.5666667 8.16666667,25.8683333 16.9433333,17.06 C17.595,16.4066667 17.5916667,15.3533333 16.94,14.7033333 C16.2866667,14.0566667 15.2333333,14.0566667 14.5833333,14.7066667 C5.17833333,24.1433333 0,36.6783333 0,50 C0,77.57 22.43,100 50,100 C77.57,100 100,77.57 100,50 C100,22.43 77.57,0 50,0 Z" id="Shape"></path>
