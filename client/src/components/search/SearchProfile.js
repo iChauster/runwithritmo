@@ -57,7 +57,7 @@ class SearchProfile extends Component {
   calculateAverageDistance(){
     var totalDistance = this.calculateTotalDistance();
     var runs = this.calculateTotalRuns();
-    return totalDistance / runs;
+    return Math.floor(totalDistance / runs * 100) / 100.0;
   }
   calculateLongestDistance(){
     var max = 0;
@@ -95,6 +95,7 @@ class SearchProfile extends Component {
       var latestSeconds = latestRunPace.split(':').reverse().reduce((prev, curr, i) => prev + curr*Math.pow(60, i), 0)
       var controlSeconds = controlPace.split(':').reverse().reduce((prev, curr, i) => prev + curr*Math.pow(60, i), 0)
       var difference = latestSeconds - controlSeconds;
+      console.log(difference);
       return difference
     }
   }
@@ -240,7 +241,7 @@ class SearchProfile extends Component {
                 {SVGIndicator(this.calculatePaceImprovement())} 
               </div>
               <h2 className="inlineb"> 
-                {this.toHHMMSS(this.calculatePaceImprovement())} 
+                {this.toHHMMSS(Math.abs(this.calculatePaceImprovement()))} 
               </h2>
             </div>
             
