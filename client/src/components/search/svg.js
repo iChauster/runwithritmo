@@ -60,3 +60,32 @@ export function SVGPace(){
                   </g>
               </svg>)
 }
+export function SVGIndicator(value){
+  if(value >= 0){
+  return (<svg width="36px" height="21px" viewBox="0 0 36 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+    <defs></defs>
+    <g id="Welcome" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+        <g id="Desktop-HD" transform="translate(-1285.000000, -792.000000)" fill="#5EF474">
+            <g id="Group-2" transform="translate(50.000000, 631.000000)">
+                <g id="Group-Copy" transform="translate(29.000000, 132.000000)">
+                    <polygon id="Triangle" points="1224 29 1242 50 1206 50"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+  </svg>)
+  }else{
+  return (<svg width="36px" height="21px" viewBox="0 0 36 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+    <defs></defs>
+    <g id="Welcome" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+        <g id="Desktop-HD" transform="translate(-1283.000000, -713.000000)" fill="#F45E5E">
+            <g id="Group-2" transform="translate(50.000000, 631.000000)">
+                <g id="Group" transform="translate(27.000000, 53.000000)">
+                    <polygon id="Triangle" transform="translate(1224.000000, 39.500000) scale(1, -1) translate(-1224.000000, -39.500000) " points="1224 29 1242 50 1206 50"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+  </svg>)
+  }
+}

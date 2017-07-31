@@ -69,11 +69,20 @@ html,body{
 .icon{
   padding-bottom:10px;
 }
+#indicator{
+  display: inline-block;
+  position: absolute;
+  left:15%;
+  bottom:65;
+}
 .center{
   display: table-cell;
   text-align: center;
   vertical-align: middle;
   width: 100%;
+}
+.inlineb{
+  display: inline-block;
 }
 .chart{
   padding:20px;
