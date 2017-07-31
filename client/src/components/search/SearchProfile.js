@@ -53,6 +53,20 @@ class SearchProfile extends Component {
     }, this);
     return sum;
   }
+  calculateAverageDistance(){
+    var totalDistance = this.calculateTotalDistance();
+    var runs = this.calculateTotalRuns();
+    return totalDistance / runs;
+  }
+  calculateLongestDistance(){
+    var max = 0;
+    this.runs.forEach((element, index) => {
+      if(element.length > 0){
+        max = element.length
+      }
+    }, this);
+    return max;
+  }
   calculateFastestPace(){
     
   }
@@ -80,6 +94,8 @@ class SearchProfile extends Component {
       this.ts = timeSeries
       this.distance = this.calculateTotalDistance()
       this.totalRuns = this.calculateTotalRuns()
+      this.averageDistance = this.calculateAverageDistance()
+      this.longestDistance = this.calculateLongestDistance()
       console.log(this.ts)
     }
     return (
@@ -139,7 +155,7 @@ class SearchProfile extends Component {
           <div className="box">
             <div className="center">
             <h1> Total Distance </h1>
-            <h2> {this.distance} miles</h2>
+            <h2> {this.distance} mi.</h2>
             </div>
           </div>
         </Col>
@@ -147,7 +163,7 @@ class SearchProfile extends Component {
           <div className="box">
             <div className="center">
             <h1> Average Distance </h1>
-            <h2> {this.distance} miles</h2>
+            <h2> {this.averageDistance} mi.</h2>
             </div>
           </div>
         </Col>
@@ -155,13 +171,13 @@ class SearchProfile extends Component {
           <div className="box">
             <div className="center">
             <h1> Longest Distance </h1>
-            <h2> {this.distance} miles</h2>
+            <h2> {this.longestDistance} mi.</h2>
             </div>
           </div>
         </Col>
         </div>
         <div>
-        <div className ="icon">
+        <div className="icon">
         < SVGPace />
         </div>
         <Col xs={4} md={4}>
