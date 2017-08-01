@@ -36,8 +36,8 @@ export default class Table extends Component{
         var date = new Date(data[i]["date"])
         obj["date"] = dateFormat(date, "smoothDate")
       }
-      data = data.reverse()
-
+      var d = data.reverse().slice(0)
+      data.reverse()
   		const options = {
         insertModal : this.createCustomModal,
         insertBtn : this.insertButton,
@@ -50,7 +50,7 @@ export default class Table extends Component{
 		};
   		return (
   			<div className='runs'>
-  				<BootstrapTable data={data} options={options} striped={false} hover={true} bordered={false} tableStyle={ { "padding": "6px" } } insertRow>
+  				<BootstrapTable data={d} options={options} striped={false} hover={true} bordered={false} tableStyle={ { "padding": "6px" } } insertRow>
   					<TableHeaderColumn dataField="length" width='61%' isKey={true} dataAlign="left" dataSort={true}>Length</TableHeaderColumn>
   					<TableHeaderColumn dataField="time" width='13%' dataAlign="center" dataSort={true}>Time</TableHeaderColumn>
   					<TableHeaderColumn dataField="pace" width='13%' dataAlign="center" dataSort={true}>Pace</TableHeaderColumn>

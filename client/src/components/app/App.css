@@ -84,6 +84,14 @@ html,body{
   vertical-align: middle;
   text-align: center;
 }
+#profileIcon{
+  position:absolute;
+  top:3%;
+  left:10px;
+}
+#profileIcon:hover{
+  cursor: pointer;
+}
 #login{
   background-color: #3AD96E;
   color:#F4EDF1;

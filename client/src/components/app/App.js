@@ -7,8 +7,11 @@ import {
   register
 } from '../../actions/actions';
 import Profile from '../profile/Profile';
+import {withRouter} from "react-router-dom";
 import { Button, FormControl, FormGroup } from 'react-bootstrap';
-
+import {
+  SVGProfile
+} from './svg.js'
 class App extends Component {
   constructor(props) {
     super(props)
@@ -52,6 +55,9 @@ class App extends Component {
       alert('Please enter a username and password!');
     }
   }
+  redirectToProfileView(){
+    this.props.history.push('/profile');
+  }
   render() {
     const {
       user,
@@ -73,6 +79,11 @@ class App extends Component {
             }
           </div>
         </div>
+        {user !== undefined &&
+            <div id="profileIcon" onClick={this.redirectToProfileView.bind(this)}>
+              <SVGProfile />
+            </div>
+        }
         {user !== undefined &&
             <Profile 
               profile={user}

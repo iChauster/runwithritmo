@@ -28,11 +28,6 @@ class SearchProfile extends Component {
     this.state = { width: '0', height: '0' };
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
     dateFormat.masks.smoothDate = 'm.d.yy';
-  }
-  componentDidMount(){
-    console.log('mounted')
-    this.updateWindowDimensions();
-    window.addEventListener('resize', this.updateWindowDimensions);
     const { dispatch, profile } = this.props;
     console.log(this.props)
     var username;
@@ -42,7 +37,12 @@ class SearchProfile extends Component {
       username = profile.username
     }
     console.log("PROFILE : " + username)
-    dispatch(getFullUser(username))    
+    dispatch(getFullUser(username))  
+  }
+  componentDidMount(){
+    console.log('mounted')
+    this.updateWindowDimensions();
+    window.addEventListener('resize', this.updateWindowDimensions);  
   }
   componentWillUnmount(){
     window.removeEventListener('resize', this.updateWindowDimensions);
@@ -136,6 +136,7 @@ class SearchProfile extends Component {
         "points" : pointsArray
       };
       console.log(data)
+      console.log(user);
       const timeSeries = new TimeSeries(data)
       this.ts = timeSeries
       console.log(this.ts)
