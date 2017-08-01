@@ -60,7 +60,7 @@ class Modal extends Component {
           
             <FormGroup key={ "length" }>
               <label>{ "Distance" } : </label>
-              <FormControl inputRef={ref =>{this.st["length"] = ref}} placeholder={"Length"} />
+              <FormControl inputRef={ref =>{this.st["length"] = ref}} placeholder={"Miles"} />
               { errorLength }
             </FormGroup>
             

@@ -53,7 +53,7 @@ export default class Table extends Component{
   				<BootstrapTable data={data} options={options} striped={false} hover={true} bordered={false} tableStyle={ { "padding": "6px" } } insertRow>
   					<TableHeaderColumn dataField="length" width='61%' isKey={true} dataAlign="left" dataSort={true}>Length</TableHeaderColumn>
   					<TableHeaderColumn dataField="time" width='13%' dataAlign="center" dataSort={true}>Time</TableHeaderColumn>
-  					<TableHeaderColumn dataField="pace" width='13%' dataAlign="center">Pace</TableHeaderColumn>
+  					<TableHeaderColumn dataField="pace" width='13%' dataAlign="center" dataSort={true}>Pace</TableHeaderColumn>
             <TableHeaderColumn dataField="date" width='13%' dataAlign="center" dataSort={true}>Date</TableHeaderColumn>
   				</BootstrapTable>
           <div id="addRun" className='mdc-fab' onClick={this.callModal.bind(this)}>
