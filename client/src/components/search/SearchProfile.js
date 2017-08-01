@@ -33,8 +33,14 @@ class SearchProfile extends Component {
     console.log('mounted')
     this.updateWindowDimensions();
     window.addEventListener('resize', this.updateWindowDimensions);
-    const { dispatch } = this.props;
-    const username = this.props.match.params.username
+    const { dispatch, profile } = this.props;
+    console.log(this.props)
+    var username;
+    if(!profile){
+      username = this.props.match.params.username
+    }else{
+      username = profile.username
+    }
     console.log("PROFILE : " + username)
     dispatch(getFullUser(username))    
   }
@@ -111,7 +117,8 @@ class SearchProfile extends Component {
   }
   render() {
     const {
-      user
+      user,
+      profile
     } = this.props
     if(user != null){
       var pointsArray = []
@@ -137,7 +144,12 @@ class SearchProfile extends Component {
       <div className="App">
         <div className="header">
           <div id="brand">
+            {profile === undefined &&
             <h1> @{this.props.match.params.username} </h1>
+            }
+            {profile !== undefined &&
+            <h1> @{profile.username} </h1>
+            }
           </div>
         </div>
         {user !== undefined &&

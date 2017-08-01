@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import App from './components/app/App';
 import SearchProfile from './components/search/SearchProfile'
+import PersonalProfile from './components/profile/PersonalProfile'
 
 
 const Root = ({ store }) => (
@@ -14,6 +15,7 @@ const Root = ({ store }) => (
       <div>
         <Route exact path="/" component={App} />
         <Route path="/search/:username" component={SearchProfile} />
+        <Route path="/profile" component={PersonalProfile} />
       </div>
    </Router >
   </Provider>
