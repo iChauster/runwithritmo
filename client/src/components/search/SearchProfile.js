@@ -9,7 +9,8 @@ import {
     ChartContainer,
     ChartRow,
     YAxis,
-    LineChart
+    LineChart,
+    styler
 } from "react-timeseries-charts";
 import {
   SVGRuns,
@@ -122,25 +123,36 @@ class SearchProfile extends Component {
     } = this.props
     if(user != null){
       var pointsArray = []
+      var paceArray = []
       this.runs = user.runs
       user.runs.forEach((element, index) => {
         var runDataArray = []
         runDataArray.push(Date.parse(element.date))
         runDataArray.push(element.length)
+        var paceDataArray = []
+        paceDataArray.push(Date.parse(element.date))
+        paceDataArray.push(element.pace.split(':').reverse().reduce((prev, curr, i) => prev + curr*Math.pow(60, i), 0) / 60.0)
+        paceArray.push(paceDataArray)
         pointsArray.push(runDataArray)
       }, this);
       this.lastRun = dateFormat(new Date(user.runs[user.runs.length - 1].date), "smoothDate");
-      const data = {
+      const dataTime = {
         "name" : 'Miles v Time',
         "columns" : ["time", "value"],
         "points" : pointsArray
       };
-      console.log(data)
-      console.log(user);
-      const timeSeries = new TimeSeries(data)
+      const paceTime = {
+        "name" : "Pace v Time",
+        "columns" : ["time", "value"],
+        "points" : paceArray
+      }
+      const timeSeries = new TimeSeries(dataTime)
+      const paceSeries = new TimeSeries(paceTime)
       this.ts = timeSeries
+      this.paces = paceSeries
       console.log(this.ts)
     }
+    //const styles = styler([{key:"pace", color:"#000000", width:1}])
     return (
       <div className="App">
         <div className="header">
@@ -159,8 +171,10 @@ class SearchProfile extends Component {
                 <ChartRow height={this.state.height * .4}>
                     <YAxis id="y" label="Miles" min={this.ts.min() - 10} max={this.ts.max() + 10}/>
                     <Charts>
-                        <LineChart axis="y" series={this.ts}/>
+                        <LineChart axis="y" series={this.ts} interpolation="curveBasis" />
+                        <LineChart axis="pace" series={this.paces} interpolation="curveBasis" />
                     </Charts>
+                    <YAxis id="pace" label="Pace" min={this.paces.min() - 5} max={this.paces.max() + 5}/>
                 </ChartRow>
             </ChartContainer>
         </div>
