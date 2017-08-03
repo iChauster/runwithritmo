@@ -124,6 +124,7 @@ class SearchProfile extends Component {
     if(user != null){
       var pointsArray = []
       var paceArray = []
+      var timeArray = []
       this.runs = user.runs
       user.runs.forEach((element, index) => {
         var runDataArray = []
@@ -132,8 +133,12 @@ class SearchProfile extends Component {
         var paceDataArray = []
         paceDataArray.push(Date.parse(element.date))
         paceDataArray.push(element.pace.split(':').reverse().reduce((prev, curr, i) => prev + curr*Math.pow(60, i), 0) / 60.0)
+        var timeDataArray = []
+        timeDataArray.push(Date.parse(element.date))
+        timeDataArray.push(element.time.split(':').reverse().reduce((prev, curr, i) => prev + curr*Math.pow(60, i), 0) / 60.0)
         paceArray.push(paceDataArray)
         pointsArray.push(runDataArray)
+        timeArray.push(timeDataArray)
       }, this);
       this.lastRun = dateFormat(new Date(user.runs[user.runs.length - 1].date), "smoothDate");
       const dataTime = {
@@ -146,10 +151,17 @@ class SearchProfile extends Component {
         "columns" : ["time", "value"],
         "points" : paceArray
       }
+      const timeTime = {
+        "name" : "Time v Time",
+        "columns" : ["time", "value"],
+        "points" : timeArray
+      }
       const timeSeries = new TimeSeries(dataTime)
       const paceSeries = new TimeSeries(paceTime)
+      const tSeries = new TimeSeries(timeTime)
       this.ts = timeSeries
       this.paces = paceSeries
+      this.time = tSeries
       console.log(this.ts)
     }
     //const styles = styler([{key:"pace", color:"#000000", width:1}])
@@ -170,9 +182,11 @@ class SearchProfile extends Component {
             <ChartContainer timeRange={this.ts.timerange()} width={this.state.width-40}>
                 <ChartRow height={this.state.height * .4}>
                     <YAxis id="y" label="Miles" min={this.ts.min() - 10} max={this.ts.max() + 10}/>
+                    <YAxis id="time" label="Time" min={this.time.min() - 10} max={this.time.max() + 10} />
                     <Charts>
                         <LineChart axis="y" series={this.ts} interpolation="curveBasis" />
                         <LineChart axis="pace" series={this.paces} interpolation="curveBasis" />
+                        <LineChart axis="time" series={this.time} interpolation="curveBasis" />
                     </Charts>
                     <YAxis id="pace" label="Pace" min={this.paces.min() - 5} max={this.paces.max() + 5}/>
                 </ChartRow>
