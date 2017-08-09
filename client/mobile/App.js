@@ -9,6 +9,8 @@ export default class App extends React.Component {
   }
   onLoginPress(){
     console.log('login')
+    console.log(this.username)
+    console.log(this.password)
   }
   onRegisterPress(){
     console.log('register')
@@ -19,6 +21,9 @@ export default class App extends React.Component {
           iconName={'user'}
           iconColor={'white'}
           style={styles.login}
+          onChangeText={(text) => { 
+            this.username = text
+          }}
           // this is used as backgroundColor of icon container view.
           iconBackgroundColor={'#60A6AF'}
           inputStyle={{ color: '#464949' }}
@@ -27,9 +32,11 @@ export default class App extends React.Component {
           iconClass={FontAwesomeIcon}
           iconName={'unlock-alt'}
           iconColor={'white'}
+          onChangeText={(text) => { this.password = text }}
           style={styles.login}
           // this is used as backgroundColor of icon container view.
           iconBackgroundColor={'#60A6AF'}
+          secureTextEntry={true}
           inputStyle={{ color: '#464949' }}
         ></Hideo>)
     return (
@@ -42,7 +49,7 @@ export default class App extends React.Component {
         {passInput}
         <View style={styles.buttons}>
           <Button
-            onPress={this.onLoginPress}
+            onPress={this.onLoginPress.bind(this)}
             style={
               {color:"#60A6AF",
               alignItems: 'center',
