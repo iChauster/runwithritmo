@@ -1,6 +1,7 @@
 # Run With Ritmo
 ## Screenshots:
-
+![Overview](./Screenshots/overview)
+![Profile](./Screenshots/main)
 The app is scaffolded with `create-react-app` on the MERN stack (Mongo, Express, React, NodeJS)
 
 To run the app, `npm install` on the project directory, AND the client directory.
