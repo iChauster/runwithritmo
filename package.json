@@ -21,7 +21,7 @@
     "sql.js": "0.3.2"
   },
   "scripts": {
-    "start": "concurrently \"npm run server\" \"npm run client\" \"npm run mobile\"", 
+    "start": "concurrently \"npm run server\" \"npm run client\" \"npm run mobile\"",
     "server": "node server.js",
     "client": "node start-client.js",
     "mobile": "node start-mobile.js",
