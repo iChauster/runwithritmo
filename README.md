@@ -1,6 +1,5 @@
 # Run With Ritmo
-
-An app dedicated to Rithvik Reddy, an aspiring developer and overall nice guy
+## Screenshots:
 
 The app is scaffolded with `create-react-app` on the MERN stack (Mongo, Express, React, NodeJS)
 
